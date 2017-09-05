@@ -1,5 +1,10 @@
 title            : Causal Inference Modeling
-description      : This is an automatically generated demo course which will help you on your way to create an awesome DataCamp course.
+description      : This course covers the basics of modeling as used in causal inference. Part of the Causal Inference Bootcamp.
+instructors      :
+ - speckart@duke.edu
+ - ransom@ou.edu
+ - bdaronson@gmail.com
+ - cooper@duke.edu
 university       : DataCamp
 difficulty_level : 2
 time_needed      : 1 hour
