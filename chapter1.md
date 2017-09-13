@@ -1,15 +1,15 @@
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
 *** =video_link
 //player.vimeo.com/video/231746347
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:09bccc78e5
 ## Discrete Choice Analysis
 *** =video_link
 //player.vimeo.com/video/231746571
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4dfa681543
 ## Examples of Discrete Choice Analysis 
 Which of the following are examples where we might apply discrete choice analysis?
 
@@ -34,13 +34,13 @@ msg4 = "(B) and (D). These are both situations where a person is making a discre
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
 ```
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:059e8eb292
 ## Confounders in Discrete Choice Analysis
 *** =video_link
 //player.vimeo.com/video/231746457
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d81765e7b7
 ## Confounders in Discrete Choice Analysis 
 Someone says “I included over 1,000 variables in my analysis. Since I have so many control variables, I do not have to worry about confounders.” Do you agree?
 *** =instructions
@@ -55,13 +55,13 @@ msg3 = "No! The total number of variables you include generally has no relations
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:4608217f1d
 ## How Do People Choose Healthcare Plans?
 *** =video_link
 //player.vimeo.com/video/231746698
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:fe92309865
 ## Policy Questions About Health Insurance 
 What policy questions might we be able to answer if we knew people’s preferences over health insurance plans?
 
@@ -88,13 +88,13 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 ```
 
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:0dd082cdd9
 ## Reading the Data to Find Preferences
 *** =video_link
 //player.vimeo.com/video/231746940
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a4c08d7b61
 ## Reading the Coefficient Estimates 
 Suppose that instead of the -0.4330 and -0.2127 coefficients we see in the first two rows of column (1) we instead saw -0.4330 and -0.4227. What would we conclude?
 *** =instructions
@@ -109,13 +109,13 @@ msg3 = "Try again"
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:4c6f64e320
 ## Using Modeling When Experiments Are Impossible
 *** =video_link
 //player.vimeo.com/video/231747210
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e26d5f2fe4
 ## Why Might Experiments Be Impossible?
 What are some reasons why we can’t do randomized experiments?
 *** =instructions
@@ -145,13 +145,13 @@ msg8 = “Try again
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg8))
 ```
 
---- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:cc7e8a6309
 ## Modeling the Impact of Government Stimulus
 *** =video_link
 //player.vimeo.com/video/231746794
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0a16d28c74
 ## Analyzing the 2009 Stimulus
 True or false: The 2009 stimulus worked and helped end the Great Recession.
 *** =instructions
