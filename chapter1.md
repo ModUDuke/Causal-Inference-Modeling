@@ -1,8 +1,3 @@
----
-title       : Causal Inference Bootcamp: Modeling
-description : This chapter will introduce you to principles of modeling causality.
-attachments :
----
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:
 ## The Basics of Modeling Behavior
