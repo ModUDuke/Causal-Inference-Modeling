@@ -4,6 +4,77 @@
 *** =video_link
 //player.vimeo.com/video/231746347
 
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+## How much ice cream does a household consume?
+You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. You decide to look at something fun, and you see that there is data about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
+ 
+*** =instructions
+- With the `summary` command, show the descriptive statistics of `consumption`, `children`, and `age`. 
+- What's the maximum number of children in this sample?
+
+*** =pre_exercise_code
+```{r}
+set.seed(1234)
+children <- round(rnorm(20,3,4),0)
+children[children<0] <-0
+age <- round(rnorm(20,7,5),0)
+age[age<0] <-1
+u <- rnorm(20,0,5)
+consumption <- 100 + 4*children-3*age+u
+icecream <- data.frame(consumption, children, age)
+```
+
+*** =hint
+- Use the `summary` function to generate a table of summary statistics about `icecream`.
+
+
+*** =sample_code
+```{r}
+#Data Dictionary:
+	#consumption: ice cream consumption (in pints)
+	#children: number of children in the family 
+	#age: average age of the children 
+
+# The first 6 observations is below:
+	head(icecream)
+  
+# We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We’ve done the first one for you.
+#---- Question 1-------------------------------------#
+      (solution1<-summary(icecream$consumption))
+#----------------------------------------------------#
+#---- Question 2——————————————————#
+      solution2<-“”
+#----------------------------------------------------#
+#---- Question 3——————————————————#
+      solution3<-“”
+#----------------------------------------------------#
+
+# Now let’s find out the largest number of children in any one family. You can use the `max` command to find this, or you can just type the answer in.
+#---- Question 4——————————————————#
+      solution4<-“”
+#----------------------------------------------------#
+
+
+*** =solution
+```{r}
+solution1<-summary(icecream$consumption)
+solution2<-summary(icecream$children)
+solution3<-summary(icecream$age)
+solution4<-max(icecream$children)
+```
+
+*** =sct
+```{r}
+test_object(“solution1")
+test_object(“solution2”)
+test_object(“solution3”)
+test_object(“solution4”)
+success_msg(“As you can see, the largest family in this sample is unusually big as it has 13 children in it. Descriptive statistics can help us detect extreme values. 13 children in a household seems like a lot. 
+
+But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.”)
+```
+
+
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:09bccc78e5
 ## Discrete Choice Analysis
 *** =video_link
