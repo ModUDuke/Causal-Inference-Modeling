@@ -7,7 +7,7 @@ description : "This chapter will introduce you to modeling for causal inference"
 *** =video_link
 //player.vimeo.com/video/231746347
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:deb9257866
 ## How much ice cream does a household consume?
 You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. You decide to look at something fun, and you see that there is data about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
  
