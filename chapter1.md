@@ -1,3 +1,6 @@
+--- 
+title       : "Introduction to Modeling for Causal Inference"
+description : "This chapter will introduce you to modeling for causal inference"
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
