@@ -1,5 +1,5 @@
 --- 
-title       : "Introduction to Modeling for Causal Inference"
+title       : "Modeling for Causal Inference"
 description : "This chapter will introduce you to modeling for causal inference"
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
@@ -8,12 +8,12 @@ description : "This chapter will introduce you to modeling for causal inference"
 //player.vimeo.com/video/231746347
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:deb9257866
-## How much ice cream does a household consume?
+## How Much Ice Cream Does a Household Consume?
 You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. You decide to look at something fun, and you see that there is data about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
  
 *** =instructions
-- With the `summary` command, show the descriptive statistics of `consumption`, `children`, and `age`. 
-- What's the maximum number of children in this sample?
+- 1) With the `summary` command, show the descriptive statistics of `consumption`, `children`, and `age`. 
+- 2) What's the maximum number of children in this sample?
 
 *** =pre_exercise_code
 ```{r}
