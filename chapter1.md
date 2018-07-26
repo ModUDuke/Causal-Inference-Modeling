@@ -37,7 +37,7 @@ msg4 = "(B) and (D). These are both situations where a person is making a discre
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
 ```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:c28b49d735
 ## Kids Love Ice Cream: Part 1 - Data Discovery
 You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. The topic is way too complicated to do a good experiment on, but you decide to look at something fun in their data, and you see that there is information about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
 
@@ -119,7 +119,7 @@ success_msg(“As you can see, the largest family in this sample is unusually bi
 But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.”)
 ```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:de1f3cbf85
 
 ## Kids Love Ice Cream: Part 2 - Ordinary Least Squares Regression (OLS) 
 It can be a bit difficult to decide where to start looking for connections, so let’s begin with a question to help us frame the situation. Since we can guess that kids love ice cream, and that kids may eat more ice cream as they get older, does our data show any relationship between total ice cream consumption and the ages and number of children in a family?  Let's find the correlation between the number of children, their ages, and family ice cream consumption through a basic linear regression.
@@ -195,7 +195,7 @@ success_msg(“Nice job. The prediction equation is: consumption = 100.2988 + 3.
 ```
 
 
---- type:NormalExercise lang:r xp:50 skills:1 key:
+--- type:NormalExercise lang:r xp:50 skills:1 key:495f3df509
 
 ## Kids Love Ice Cream: Part 3 - Understanding the Output Table
 Running a regression is the easy part, and before we can finish our argument for causality, we need to interpret our regression in the context of your theoretical framework, central question, and the limitations of your data. So let’s break down the numbers and look at what they can (or can’t) tell us about our main question about kids and ice cream consumption.
@@ -265,7 +265,7 @@ success_msg("Good work! Our coefficient on `children` has an error margin of rou
 
 
 
---- type:NormalExercise lang:r xp:50 skills:1 key:
+--- type:NormalExercise lang:r xp:50 skills:1 key:a451f86d7c
 ## Kids Love Ice Cream: Part 4 - Statistical Significance Checks
 There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let’s look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
 
@@ -338,7 +338,7 @@ success_msg("Good work! Our t-statistic is 10.10, well above the 2 that reflects
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:95ac91e75f
 ## Income Inequality at FutureChew: Part 1 - Data Discovery
 
 Food-focused software company FutureChew is growing, and like in many companies, the Director of Human Resources has noticed that the female employees are somehow getting paid slightly less than their male coworkers. The Director doesn’t think it’s due to their company hiring policies, but she’s not sure exactly what’s going on, so she asks her data analyst to use the information in their employee database to help find any causes for this. She knows it would be highly unethical to run an experiment that randomly changed people’s salaries, so she’s looking to models for an understanding of the situation. She also knows that it will be complicated, and the answer might not be completely clear.
@@ -426,7 +426,7 @@ success_msg("Good work! Great job. Take a look at the results, and look at the c
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:395da70ba8
 
 # Income Inequality at FutureChew: Part 2 - OLS Regression 
 The Director tells you that the company tries to ignore an employee’s age when setting their salary, so you assume that’s true and think about a model that bases income just on education, experience, and gender, like the following:
@@ -496,7 +496,7 @@ success_msg("Good work! While the data overall shows a positive correlation of g
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ec90db4f0a
 
 ## Income Inequality at FutureChew: Part 3 -Omitted Variable Bias
 
@@ -568,7 +568,7 @@ success_msg("Good work! Let’s compare these values to those in the original re
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:9398c86a31
 
 ## Income Inequality at FutureChew: Part  4 - Multicollinearity
 
@@ -710,7 +710,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:f723ff2d39
 ## Cash or Card? Part 1 - Data Discovery in a Table
 
 Consumers today have many payment options, and the small town West Cargo Bank is interested in learning the probability of someone using cash or a card in a store or restaurant. They are thinking that cash may be used more frequently at low value transactions, but debit and credit cards might be used more intensively in higher value transactions for record keeping purposes. The Bank knows they can’t control how credit cards and cash are used in the macroeconomy, so instead they look to model these systems based on the data they have.  The data set `Data` contains 3 variables and 72 observations. The data dictionary is below.
@@ -777,7 +777,7 @@ success_msg("Good work!")
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:8aa7765019
 
 ## Cash or Card? Part 2 - Linear Probability Model
 The bank wants to know how the value of transaction influence the probability of using cash versus card (both debit and credit card). 
@@ -870,7 +870,7 @@ But that second number is a problem: how can a probability larger than 100%? It 
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:cbe1960334
 ## Cash or Card? Part 3 - Probit Model
 
 Let’s try to work around the issues with the LPM results by using a probit model instead. In probit regression, the predicted values are calculated using as a cumulative probability distribution function of standard normal distribution, which starts out at 0 and maxes out at 1, like this:
@@ -955,7 +955,7 @@ success_msg("Good work! Now we see that the predicted probabilities fall within 
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ed84d2c77d
 
 ## Cash or Card, Part 4 - Probit or Logit?
 There’s another kind of probability model that we should check before we’re done called a legit model, and it’s often done as a counterpart to probit models.
@@ -1094,7 +1094,7 @@ msg3 = “It’s a good and important question, but unfortunately since we canno
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:326e16239a
 ## Red Wine: the Secret to Living Longer?
 
 Red wine has resveratrol, a substance that reduces the risk for heart disease. Moderate consumption of red wine is believed to promote longevity. Jenny is very health-conscious and wants to figure out whether red wine is a longevity promoter. She is interested in examining the effect of wine consumption on longevity. She doesn’t have the capacity to run a huge medical experiment herself, so she decides to instead download some public data and develop some models to see what she can learn. The data set `Data.wine` contains 4 variables and 60 observations. The data dictionary is below.
