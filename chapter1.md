@@ -20,6 +20,7 @@ A) Learning the effect of a new cancer drug on life expectancy
 B) Learning whether giving people informational brochures affects whether they take prescription drugs as prescribed, such as whether they take antibiotics for the entire duration of the prescription or whether they stop early once they feel that symptoms have disappeared.
 C) Learning whether a certain plant thrives under warmer or colder weather.
 D) Learning the effect of the income tax on whether people participate in the labor market or not.
+
 *** =instructions
 - A
 - B
@@ -27,6 +28,7 @@ D) Learning the effect of the income tax on whether people participate in the la
 - D
 - A and C
 - B and D
+
 *** =sct
 ```{r}
 msg1 = “Try again“
@@ -42,9 +44,9 @@ test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
 You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. The topic is way too complicated to do a good experiment on, but you decide to look at something fun in their data, and you see that there is information about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
 
 Data Dictionary:
-	#consumption: ice cream consumption (in pints)
-	#children: number of children in the family 
-	#age: average age of the children 
+	consumption: ice cream consumption (in pints)
+	children: number of children in the family 
+	age: average age of the children 
 
  
 *** =instructions
@@ -70,10 +72,9 @@ icecream <- data.frame(consumption, children, age)
 
 *** =sample_code
 ```{r}
-#
 # 1) First, let’s take a quick glance at how the data is formatted. We can do this by looking at the first 6 observations with the head() command, so insert the name of our dataframe, icecream, into the head() command:
 
-Solution1<-
+
   
 # Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
 
@@ -83,37 +84,28 @@ Solution1<-
 
 # 2) Now repeat this command, but for the variable `children`:
 
-#---- Question 2——————————————————#
-      solution2<-
-#----------------------------------------------------#
+
 
 3) Now repeat the summary command again, but for the variable `age`:
 
-#---- Question 3——————————————————#
-      solution3<-
-#----------------------------------------------------#
+
 
 # Now let’s find out the largest number of children in any one family. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
 
-#---- Question 4——————————————————#
-      solution4<-
-#----------------------------------------------------#
 
+```
 
 *** =solution
 ```{r}
-solution1<-head(icecream)
-solution2<-summary(icecream$children)
-solution3<-summary(icecream$age)
-solution4<-max(icecream$children)
+head(icecream)
+summary(icecream$children)
+summary(icecream$age)
+max(icecream$children)
 ```
 
 *** =sct
 ```{r}
-test_object(“solution1")
-test_object(“solution2”)
-test_object(“solution3”)
-test_object(“solution4”)
+test_error()
 success_msg(“As you can see, the largest family in this sample is unusually big as it has 13 children in it. Descriptive statistics can help us detect extreme values. 13 children in a household seems like a lot. 
 
 But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.”)
@@ -125,9 +117,9 @@ But is this observation an outlier? An outlier may result from variability or it
 It can be a bit difficult to decide where to start looking for connections, so let’s begin with a question to help us frame the situation. Since we can guess that kids love ice cream, and that kids may eat more ice cream as they get older, does our data show any relationship between total ice cream consumption and the ages and number of children in a family?  Let's find the correlation between the number of children, their ages, and family ice cream consumption through a basic linear regression.
 
 Data Dictionary:
-	#consumption: ice cream consumption (in pints)
-	#children: number of children in the family 
-	#age: average age of the children 
+	consumption: ice cream consumption (in pints)
+	children: number of children in the family 
+	age: average age of the children 
 
 *** =instructions
 - 1) Use the `lm` function to create a linear regression of children and age on ice cream consumption.
@@ -153,23 +145,17 @@ icecream <- data.frame(consumption, children, age)
 
 # Note: If you’ve never run a regression with multiple independent variables in R before, the format for the lm() function is: lm(outcome ~ variable1+variable2))
 
-#---- Question 1-------------------------------------#
-      Solution1<-
-#----------------------------------------------------#
+      regression<-
 
 # 2) Great. Now we’ll repeat that code, but within the lm.out() function, which will output the linear regression. 
 
 # 3) Now run the summary() function on Solution1 to look at the correlation. Note the tour y intercept shows the base level of ice cream eaten in families with no children: 
 
-#---- Question 2——————————————————#
       solution2<-
-#----------------------------------------------------#
 
-# 4) Fill in the blanks of the following equation to create a model for family ice cream consumption based on our regression results from Solution2:
+# 4) Fill in the blanks of the following equation to create a model for family ice cream consumption based on our regression results from Solution2 (and don't round the numbers!):
 
-#---- Question 3——————————————————#
-      Solution3<-“ ” + “ ”*children - “ ”*age
-#----------------------------------------------------#
+      model<-#### + ####children - ####*age
 
 ```
 
@@ -181,9 +167,9 @@ icecream <- data.frame(consumption, children, age)
 
 *** =solution
 ```{r} 
-solution1<-lm(consumption~age+children)
-solution2<-summary(solution1)
-Solution3<-100.2988 + 3.5469*children - 3.2950*age
+regression<-lm(consumption~age+children)
+solution2<-summary(regression)
+model<-100.2988 + 3.5469*children - 3.2950*age
 ```
 
 
@@ -215,9 +201,9 @@ model<-lm(consumption ~ children+age)
 ```
 
 *** =instructions
-1) Run the summary() command on our model 
-What's the coefficient on `children`?
-2) What's the standard error of this estimate?
+- 1) Run the summary() command on our model 
+- 2) What's the coefficient on `children`?
+- 3) What's the standard error of this estimate?
 
 
 ***=sample_code
@@ -226,28 +212,22 @@ What's the coefficient on `children`?
 
 # First, run the summary command again on our equation of our first regression, `model`.
 
-#---- Question 1-------------------------------------#
-      Solution1<-
-#----------------------------------------------------#
 
-# 2) What is the coefficient on `children`?
 
-#---- Question 2——————————————————#
+# 2) What is the coefficient on `children`? Don't round the number.
+
       solution2<-
-#----------------------------------------------------#
 
 # Nice going. This result gives us an estimate for how many pints of ice cream each child eats in a family.
 
 # But what is the standard error for this coefficient? Now type in the standard error for regression on `children` below: 
 
-#---- Question 3——————————————————#
       Solution3<-
-#----------------------------------------------------#
 ```
 
 *** =solution
 ```{r}
-Solution1<-summary(model)
+summary(model)
 solution2<-3.5469
 solution3<-0.3380
 ```
@@ -258,11 +238,7 @@ test_object("Solution1")
 test_object(“Solution2”)
 test_object(“Solution3”)
 success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it’s hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.”) 
-
-
-
-
-
+```
 
 
 --- type:NormalExercise lang:r xp:50 skills:1 key:a451f86d7c
@@ -279,6 +255,7 @@ There are several numbers that the summary() function generates that that can he
 - **Interpreting $R^2$ values**
 - 0% indicates that the model explains none of the variability of the response data around its mean. 
 - 100% indicates that the model explains all the variability of the response data around its mean. 
+
 *** =pre_exercise_code
 ```{r}
 set.seed(1234)
@@ -292,23 +269,22 @@ icecream <- data.frame(consumption, children, age)
 model<-lm(consumption ~ children+age)
 summary(model)
 ```
+
+*** =sample_code
+```{r}
 # We calculate the t-statistic by dividing the regression coefficient by its standard error—it’s a quick way to help us see how precise our regression coefficient is. It can be positive or negative, but for now you can ignore the sign and look at the size of the result to learn about how statistically significant our coefficient is.
 
-# 1) What's the t-statistic for the coefficient on `children`? 
+# 1) What's the t-statistic for the coefficient on `children`? Don't round the number.
 
-#---- Question 1-------------------------------------#
       Solution1<-
-#----------------------------------------------------#
 
 # Nice. That is pretty far from 0 for a t-statistic, so we can very safely say that this is a statistically significant result.
 
 # Another test we can use is the p-value, which is a more common (and misused!) statistic that returns a value between 0 and 1. Let’s see if our p-value is under 0.05, which is a standard goal for significance.
 
-# What’s the p-value for our regression?
+# 2) What’s the p-value for our regression? Don't round the number.
 
-#---- Question 2——————————————————#
       solution2<-
-#----------------------------------------------------#
 
 # Good. It’s very safe to interpret that as a very strong sign of statistical significance!
 
@@ -316,11 +292,11 @@ summary(model)
 
 # Of course, it’s not always that simple if your data is nonlinear or on a subject that’s generally hard to predict, so we can’t always assume that a high $R^2$ is better than a low $R^2$. 
 
- #In this case, R-squared is a useful term, which is termed “Multiple R Squared” in this table to distinguish it from a different measure called Adjusted R Squared. What is the Multiple R-squared value is of this model?
+# 3) In this case, R-squared is a useful term, which is termed “Multiple R Squared” in this table to distinguish it from a different measure called Adjusted R Squared. What is the Multiple R-squared value is of this model? Don't round the number.
 
-#---- Question 3——————————————————#
       Solution3<-
-#----------------------------------------------------#
+
+```
 
 *** =solution
 ```{r}
@@ -354,7 +330,10 @@ exp         : work experience in years
 educ        : education in years
 
 *** =instructions
-- 
+- 1) Take a look at the structure of the dataset and some initial variable values.
+- 2) Take a guess at which 2 variables will be the most correlated.
+- 3) Take a guess at which 2 variables will be the least correlated.
+- 4) See how close your guesses were by looking at a correlation matrix.
 
 ***=pre_exercise_code
 ```{r}
@@ -381,35 +360,27 @@ data$inc[data$inc<8] <-8
 
 # 1 ) Run the head() command to take a look at the first 6 rows of the dataframe `data`. This will tell us the variable names and some of their values:
 
-#---- Question 1-------------------------------------#
-      Solution1<-
-#----------------------------------------------------#
+
 
 # 2) Now that we know what variables are in the dataframe, think about what variables might have the largest and smallest correlations. Write down what pair of variables will be most correlated:
 
-#---- Question 2——————————————————#
       most.correlated<-“ “ and “ “
-#----------------------------------------------------#
 
 # 3) Now write down the pair of variables you think will be the least correlated:
 
-#---- Question 3——————————————————#
       least.correlated<-“ “ and “ “
-#----------------------------------------------------#
 
 # 4) Now let’s see what the biggest and smallest correlations are between them. Make a correlation matrix of `female`,`age`,`exp`,`educ` and `inc`.
 
-#---- Question 4——————————————————#
-     Solution2<-
-#----------------------------------------------------#
+```
 
 
-# THE SOLUTION IS SOME WEIRD FORMAT—USE IT OR DROP IT?
+# SHOULD WE EVEN PUT THOSE GUESS STRINGS FROM 2 & 3 INTO DATAFRAMES, OR JUST LEAVE THE ENTRY LINES BLANK SINCE WE WON'T CHECK THEM?
 
 *** =solution
 ```{r}
-Solution1<-head(data)
-Solution2<-cor(data,use = "complete.obs",method = "pearson")
+head(data)
+cor(data,use = "complete.obs",method = "pearson")
 ```
 
 *** =sct
@@ -435,7 +406,7 @@ $inc=\alpha+\beta_1educ+\beta_2exp+\beta_3female+u$,where $u$ is random error.
 
 So let’s check out whether these variables seem to be correlated with salary in our data.
 
-***=instructions
+*** =instructions
 - 1) Start with a simple regression
 - 2) Identify a variable that is negatively correlated with income.
 
@@ -460,21 +431,18 @@ data$inc[data$inc<8] <-8
 
 
 ***=sample_code
+```{r}
+# 1) We can use regression to help us determine the coefficients for each of these factors in an employee’s income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
 
-# 1) We can use regression to help us determine the coefficients for each of these factors in an employee’s income. Regress `inc` on `female`,`exp`, and `educ`.
-
-#---- Question 1——————————————————#
       solution1<-
-#----------------------------------------------------#
 
 # Great. The regression coefficient estimate in the (Intercept) row is suggesting that there’s a positive relationship between these variables and someone’s hourly wage at FutureChew. Now let’s dig down and find out more about what this regression can (or can’t) tell us. 
 
 2) Which variable has a negative effect on income?
 
-#---- Question 2——————————————————#
      solution2<-“”
-#----------------------------------------------------#
-
+     
+```
 
 *** =solution
 ```{r}
@@ -503,9 +471,11 @@ success_msg("Good work! While the data overall shows a positive correlation of g
 As we know, we don’t want to omit any variables in our regression that might be affecting outcomes, because that would create a bias in our results. However, we can also use the “omitted variable bias” as a tool to check whether our first guess at important factors was correct—if we remove a variable and nothing changes in our estimate, then that variable was probably not necessary. If we omit a variable and our estimate does change, the size and direction of the difference can show us more about the relationships between the variables, namely which ones are pushing our estimates up or down in any significant way. 
 
 *** =instructions
--
+- 1) Run a regression on the data that omits the variable `female`.
+- 2) How does that change the coefficient for experience?
+- 3) How does that change the coefficient for education?
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 female <- rbinom(20,1,0.5)
@@ -524,34 +494,28 @@ data$inc[data$inc<8] <-8
 model<-lm(inc ~ female + exp + educ)
 ```
 
-***=sample_code
+*** =sample_code
 ```{r}
 
 # While the data overall shows a positive correlation of gender, experience, and education  on an employee’s hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.
 
-# In this case, let’s remove our gender variable from the regression to see if that makes any difference at all. Omit `female` from the regression, and just regress `inc` on `exp`, and `educ`. Then use the summary() command to see the results.
+# 1) In this case, let’s remove our gender variable from the regression to see if that makes any difference at all. Omit `female` from the regression, and just regress `inc` on `exp`, and `educ`. Then use the summary() command to see the results.
 
-#---- Question 1-------------------------------------#
      lm.out2<-
-#----------------------------------------------------#
 
-# In our original regression that included `female`, the coefficient for experience was 0.25116. What is the coefficient on `exp` now that we’ve omitted `female`?
+# 2) In our original regression that included `female`, the coefficient for experience was 0.25116. What is the coefficient on `exp` now that we’ve omitted `female`? Don't round the number.
 
-#---- Question 2——————————————————#
      solution2<-
-#----------------------------------------------------#
 
-# Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we’ve omitted `female`?
+# 3) Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we’ve omitted `female`? Don't round the number.
 
-#---- Question 3——————————————————#
      solution3<-
-#----------------------------------------------------#
+ 
 ```
 
 
 *** =solution
 ```{r}
-
 lm.out2 <- with(data, lm(inc ~ exp + educ))
 summary(lm.out2)
 Solution2<-0.25580
@@ -578,7 +542,7 @@ But there’s more to this than just gender, education, and experience. There’
 - 1) Add a variable for age into our regression and see what happens.
 - 2) If multicollinearity is a problem, drop a collinear variable and run another regression without it.
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 female <- rbinom(20,1,0.5)
@@ -598,14 +562,12 @@ model<-lm(inc ~ female + exp + educ)
 ```
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 
-# 1) Let’s start with the basics by including `age` in the regression. Regress `inc` on `female`,`age`,`exp`, and `educ`. Then output the results with the summary function
+# 1) Let’s start with the basics by including `age` in the regression. Regress `inc` on `female`,`age`,`exp`, and `educ`. Then output the results with the summary function.
 
-#---- Question 1-------------------------------------#
-    solution1<-
-#----------------------------------------------------#
+
 
 # You should see that when the model includes `age`, the estimators have very large standard error, and none of the coefficients are significant at 5% level. 
 
@@ -613,17 +575,15 @@ model<-lm(inc ~ female + exp + educ)
 
 # The multicollinearity inflates the standard error, thus the coefficients are very likely to be insignificant. We can drop one of the highly correlated variables. But which one to drop? In this case, it makes more sense to drop `age`. People always age but not necessarily gain more working experience. Thus, we can drop `age` to produce a model with significant coefficients. Now, re-run the regression without `age`.
 
-#---- Question 2——————————————————#
-     solution2<-
-#----------------------------------------------------#
-
+     
+```
 
 *** =solution
 ```{r}
-solution1<-lm(inc ~ female + age + exp + educ)
-summary(solution1)
-solution2<-lm(inc ~ female + exp + educ)
-summary(solution2)
+lm(inc ~ female + age + exp + educ)
+	summary(solution1)
+lm(inc ~ female + exp + educ)
+	summary(solution2)
 ```
 
 *** =sct
@@ -643,10 +603,12 @@ success_msg("Nice job! In the end, our data supports a model of income that uses
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d81765e7b7
 ## Confounders in Discrete Choice Analysis 
 Someone says “I included over 1,000 variables in my analysis. Since I have so many control variables, I do not have to worry about confounders.” Do you agree?
+
 *** =instructions
 - Maybe
 - Yes
 - No
+
 *** =sct
 ```{r}
 msg1 = “Try again“
@@ -676,6 +638,7 @@ C) Whether having health insurance makes people healthier.
 - A and B
 - A and C
 - B and C
+
 *** =sct
 ```{r}
 msg1 = “Try again“
@@ -697,10 +660,12 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a4c08d7b61
 ## Reading the Coefficient Estimates 
 Suppose that instead of the -0.4330 and -0.2127 coefficients we see in the first two rows of column (1) we instead saw -0.4330 and -0.4227. What would we conclude?
+
 *** =instructions
 - The data is inconsistent with rational choice.
 - The data is consistent with rational choice.
 - The data are not sufficient to draw a conclusion either way.
+
 *** =sct
 ```{r}
 msg1 = "Try again"
@@ -722,9 +687,10 @@ payment        : choice of payment (cash, credit card, or debit card)
 value         : value of transaction in dollars
 
 *** =instructions
--
+- 1) Look at the data to see 
+- 2) 
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 library(dplyr)
 set.seed(123)
@@ -735,13 +701,6 @@ payment <- sample(payment, replace = FALSE)
 value <- rep(NA,72)
 reward <- rep(NA,72)
 Data <- data.frame(ID,payment,value,reward)
-```
-
-
-***=sample_code
-```{r}
-# Cash is used mostly in low value transactions, Credit cards are used more frequently for higher value transactions. Run the following code to see what this looks like:
-
 Data$value[Data$payment == "Cash"] <- round(rnorm(15,16,4),2)
 Data$value[Data$payment == "Credit"] <- round(rnorm(35,150,10),2)
 Data$value[Data$payment == "Debit"] <- round(rnorm(22,100,50),2)
@@ -750,22 +709,28 @@ Data$value[Data$payment == "Debit"] <- round(rnorm(22,100,50),2)
 Data$reward[Data$payment == "Cash"] <- rbinom(15,1,0.1)
 Data$reward[Data$payment == "Credit"] <- rbinom(35,1,0.5)
 Data$reward[Data$payment == "Debit"] <- rbinom(22,1,0.2)
+```
 
-# Make a Table
-# Create a 3 by 3 table that contains averages of `value` by `payment` in the first column and the standard deviations of `value` by drinking level in the second column. Provide the R code below. 
+
+*** =sample_code
+```{r}
+# 1) We have a dataset that has store transactions that includes cash, credit, and debit payments. If we graph the results, can we see if there are any obvious trends that show a relationship between the price of an item and how people pay for it? Run the following R code to see (Cash is marked as Payment Type 1, Credit is marked as Payment Type 2, and Debit is marked as Payment Type 3): 
+
+	plot(Data$value, Data$payment, xlab="Item Cost", ylab="Payment Type")
+
+# Interesting. Cash is used mostly in low value transactions, credit cards are used more frequently for higher value transactions, and debit seems to be used for all levels of transactions.
+
+# 2) Now create a 3 by 3 table that contains averages of `value` by `payment` in the first column and the standard deviations of `value` by drinking level in the second column. Provide the R code below. 
 
 #Note: the format to do this with dplyr is: ddply(dataframe, ~variable1, variable2, mean=mean (value), sd=sd(value))
 
 
-#---- Question 1-------------------------------------#
-     solution1<-
-#----------------------------------------------------#
 ```
 
 *** =solution
 ```{r}
-solution1<-ddply(Data, ~payment, summarise, 
-      mean = mean (value), sd = sd(value))
+plot(Data$value, Data$payment, xlab="Item Cost", ylab="Payment Type")
+ddply(Data, ~payment, summarise, mean = mean (value), sd = sd(value))
 ```
 
 *** =sct
@@ -789,9 +754,12 @@ payment        : choice of payment (cash, credit card, or debit card)
 value         : value of transaction in dollars
 
 *** =instructions
--
+- 1) Create a dummy variable called `card` that with binary values to mark whether someone used cash or a credit/debit card.
+- 2) Run a regression on this binary variable on the values of purchase values to see how much more likely a person is to use a card for every $1 increase in purchase price.
+- 3) What is the probability of using a card for a $10 item?
+- 4) What is the probability of using a card for a $200 item?
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 #Dataframe
@@ -811,44 +779,36 @@ reward <- rep(NA,72)
 Data <- data.frame(ID,payment,value,reward)
 ```
 
-***=sample_code
+*** =sample_code
 ```{r}
-# Create a new dummy variable `card` with values 1 or 0 that describe whether the person used card or not. In other words, `card` is 0 if the person used a debit or credit card, 1 if he/she used cash. Then, add this variable `card` to the dataset `Data`. Provide the R code below.
+# 1) Create a new dummy variable `card` with values 1 or 0 that describe whether the person used card or not. In other words, `card` is 0 if the person used a debit or credit card, 1 if he/she used cash. Then, add this variable `card` to the dataset `Data`. Provide the R code below.
 
-#---- Question 1——————————————————#
-     solution1<-
-#----------------------------------------------------#
+
 
 # Then we can estimate how the value of transaction influence the probability of using cash or card. One way to estimate this probability is to use Linear Probability Model (LPM). LPM works like a normal linear regression model, but the dependent variable is binary. 
 
-# 2) Regress `card` on `value`, and then look at summary results. What's the coefficient on the independent variable? 
+# 2) Regress `card` on `value`, and then look at summary results. What's the coefficient on the independent variable? Don't round the number.
 
-#---- Question 2——————————————————#
-     solution2<-
-#----------------------------------------------------#
+	solution2<-
 
-# 3)The coefficient on `value` is 0.0057 (0.57%), which is the change in the probability that a person chooses card for an $1 increase in transaction value.  A predicted value $\widehat{card}$ is the predicted probability that the dependent variable `card` equals one, given `value`.
+# The coefficient on `value` is 0.0057 (0.57%), which is the change in the probability that a person chooses card for an $1 increase in transaction value.  A predicted value $\widehat{card}$ is the predicted probability that the dependent variable `card` equals one, given `value`.
 
 $P(\widehat{card = 1}) = 0.1697433 +  0.0057374 \times value$
 
-# What's the expected probability of using card for a $10 transaction? 
+# 3) What code provides the expected probability of using card for a $10 transaction? Write the R code below and look at the answer.
 
-#---- Question 3——————————————————#
      solution3<-
-#----------------------------------------------------#
 
+# 4) What code provides the probability of using card change if the value of transaction is $200? Write the R code below and look at the answer.
 
-# 4) How will the probability of using card change if the value of transaction is $200?
-
-#---- Question 4——————————————————#
      solution4<-
-#----------------------------------------------------#
+```
 
 ## NOT SURE IF SOLUTIONS WORK FOR 3 AND 4
 
 *** =solution
 ```{r}
-solution1<-card <- rep(1,72)
+card <- rep(1,72)
 card[which(Data$payment == "Cash")] <- 0
 Data$card <- card
 solution2<-lm(card ~ value))
@@ -879,7 +839,6 @@ $P (Y = 1|X) = \phi(\hat{\beta_{0}}+\hat{\beta_{1}}X)$
 
 Thus, the predicted values are bounded between 0 and 1.  
 
-
 Data Dictionary:
 
 ID          : subject identifier
@@ -887,9 +846,9 @@ payment        : choice of payment (cash, credit card, or debit card)
 value         : value of transaction in dollars
 
 *** =instructions
--
+- 1) Run a probit 
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 #Dataframe
@@ -912,36 +871,29 @@ Data <- data.frame(ID,payment,value,reward)
 ```
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 
 # 1) Now, run a probit regression of `card` on `value`. 
 
-#---- Question 1-------------------------------------#
-     solution1<-
-#----------------------------------------------------#
 
 
 # 2) Using probit, what's the expected probability of using card for a $10 transaction? 
 
-#---- Question 1-------------------------------------#
-     Solution1<-
-#----------------------------------------------------#
 
-# 3) What  probability does probit give you of using card change if the value of transaction is $200?
 
-#---- Question 1-------------------------------------#
-     Solution1<-
-#----------------------------------------------------#
+# 3) What probability does probit give you of using card change if the value of transaction is $200?
+
+
 
 ## NOT SURE IF SOLUTIONS 2 AND 3 WORK
 
 *** =solution
 ```{r}
-solution1<- glm(card ~ value, family = binomial(link = "probit"), data = Data)
-summary(solution1)
-solution2<-predict(myprobit, data.frame(value = c(10,200)), type = "response")
-solution3<-predict(myprobit, data.frame(value = c(10,200)), type = "response")
+glm(card ~ value, family = binomial(link = "probit"), data = Data)
+	summary(solution1)
+predict(myprobit, data.frame(value = c(10,200)), type = "response")
+predict(myprobit, data.frame(value = c(10,200)), type = "response")
 ```
 
 *** =sct
@@ -1010,16 +962,11 @@ $P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
 # 1) Try it for yourself and run a logit regression of `card` on `value`. Provide the R code below.
 
-#---- Question 1-------------------------------------#
-     Solution1<-
-#----------------------------------------------------#
 
-# 2) Using a logit model, what's the expected probability of using card for a $10 transaction? How will the probability of using card change if the value of transaction is $200?
-Provide the R code below.
 
-#---- Question 2——————————————————#
-     solution2<-
-#----------------------------------------------------#
+# 2) Using a logit model, what's the expected probability of using card for a $10 transaction? How will the probability of using card change if the value of transaction is $200? Provide the R code below.
+
+
 
 *** =solution
 ```{r}
@@ -1060,6 +1007,7 @@ D) States that don't have the death penalty also tend to legalize more recreatio
 - B and C
 - C and D
 - None of the Above
+
 *** =sct
 ```{r}
 msg1 = "Try again"
@@ -1082,10 +1030,12 @@ test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg8))
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0a16d28c74
 ## Analyzing the 2009 Stimulus
 True or false: The 2009 stimulus worked and helped end the Great Recession.
+
 *** =instructions
 - We have proved that it did work
 - The data shows it had no effect
 - I can’t tell either way
+
 *** =sct
 ```{r}
 msg1 = “It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
@@ -1099,7 +1049,13 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 
 Red wine has resveratrol, a substance that reduces the risk for heart disease. Moderate consumption of red wine is believed to promote longevity. Jenny is very health-conscious and wants to figure out whether red wine is a longevity promoter. She is interested in examining the effect of wine consumption on longevity. She doesn’t have the capacity to run a huge medical experiment herself, so she decides to instead download some public data and develop some models to see what she can learn. The data set `Data.wine` contains 4 variables and 60 observations. The data dictionary is below.
 
-***=pre_exercise_code
+Data Dictionary:
+ID          : subject identifier
+Wine        : drinking level (light, moderate, and heavy)
+Age         : age at death
+Exercise    : hours spent on exercise per week
+
+*** =pre_exercise_code
 ```{r}
 library(plyr)
 set.seed(123)
@@ -1124,41 +1080,28 @@ col[Data.wine$Wine=="moderate"] <- "orange"
 col[Data.wine$Wine=="heavy"] <- "yellow"
 ```
 
-Data Dictionary:
 
-ID          : subject identifier
-
-Wine        : drinking level (light, moderate, and heavy)
-
-Age         : age at death
-
-Exercise    : hours spent on exercise per week
-
-***=instructions
+*** =instructions
 -
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 # Plotting the Age at Death among Different Drinking Levels
 
 # The primary outcome of interest is difference in age at death (`Age`) among different drinking levels (`Wine`).  The first 6 observations is below:
 
-head(Data.wine)
+	head(Data.wine)
 
 # Create a box plot that plots the primary outcome as a function of drinking level. Use different plotting color for each drinking level. Make sure to include an informative title and axis labels. Is there any evidence of a relationship between the two variables? Provide the R code below.
 
-#---- Question 1-------------------------------------#
-     solution1<-
-#----------------------------------------------------#
+
 
 # The mean values of age at death look different, but are they? Let's use linear regression (lm) to find out. 
 
 # 2) Simply, regress `Age` on `Wine` and print the summary statistics. Please provide the R code below.
 
-#---- Question 2——————————————————#
-     solution2<-
-#----------------------------------------------------#
+
 
 #Hours of Exercise among Different Drinking Levels
 
@@ -1166,35 +1109,32 @@ head(Data.wine)
 
 # 3) Create a 3 by 3 table that contains averages of `Exercise` by drinking level in the first column and the standard deviations of `Exercise` by drinking level in the second column. Provide the R code below. 
 
-#---- Question 3——————————————————#
-     solution3<-
-#----------------------------------------------------#
+
 
 # Now, control for hours spent on exercise per week (`Exercise`) in the linear regression.
 
 # 4) Run a multiple linear regression of `Age` on `Wine` and `Exercise`. Please provide the R code below.
 
-#---- Question 4——————————————————#
-     solution4<-
-#----------------------------------------------------#
 
+
+```
 
 
 
 *** =solution
 ```{r}
-solution1<-plot(Data.wine$Wine, Data.wine$Age, main = "Difference in Age at Death", ylab = "Age at Death", xlab = "Drinking Level", col = col)
-solution2<-lm(Age ~ Wine))
-summary(solution2)
-solution3<-ddply(Data.wine,~Wine, summarise, mean = mean (Exercise), sd = sd(Exercise))
-solution4<-lm(Age ~ Wine + Exercise))
-summary(solution4)
+plot(Data.wine$Wine, Data.wine$Age, main = "Difference in Age at Death", ylab = "Age at Death", xlab = "Drinking Level", col = col)
+lm(Age ~ Wine))
+	summary(solution2)
+ddply(Data.wine,~Wine, summarise, mean = mean (Exercise), sd = sd(Exercise))
+lm(Age ~ Wine + Exercise))
+	summary(solution4)
 
 ```
 
 *** =sct
 ```{r}
-test_object("Solution1")
+test_error()
 success_msg("Good work! The base group (light drinkers) is represented by the intercept. Light drinkers have an average life span of 79.83 years. The regression coefficient on moderate drinkers is 4.467, indicating the expected life of moderate drinkers is 4.467 years longer than that of light drinkers. The p-value of this coefficient around 3%, suggesting the difference in expected life  between those two groups is significant at 5% significance level. 
 
 Moderate consumers spend the most time on exercise and heavy drinkers are the most physically inactive. When we control for exercise, the coefficient on moderate drinkers is no longer significant (p-value:7.24%). This implies that wine consumption cannot explain the age differences between moderate drinkers and light drinkers. However, the coefficient on `Exercise` is significantly positive at 1% significance level. Thus, longevity is driven mostly by physical activity instead of wine consumption in this case.")
