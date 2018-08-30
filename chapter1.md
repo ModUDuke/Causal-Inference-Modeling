@@ -32,13 +32,13 @@ D) Learning the effect of the income tax on whether people participate in the la
 
 *** =sct
 ```{r}
-msg1 = "Try again"
-msg2 = "Try again"
-msg3 = "Try again"
-msg4 = "In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
-msg5 = "(B) and (D). These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
-msg6 = "Try again"
-test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
+msg1 = "We might hope this drug works, but we're looking for examples of when people make choices. Try again."
+msg2 = "There is another answer that also qualifies, so try again."
+msg3 = "We are looking for examples of when humans make choices. Try again."
+msg4 = "There is another answer that also qualifies, so try again."
+msg5 = "In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
+msg6 = "Correct! These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
+test_mc(correct = 6, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 ```
 
 
