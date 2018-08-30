@@ -252,13 +252,13 @@ success_msg("Good work! Our coefficient on `children` has an error margin of rou
 There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let’s look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
 
 *** =instructions
-- **Interpreting t-statistics**
+- Interpreting t-statistics:
 - A t-statistic of 0 is the worst case scenario. It means that we should have zero confidence in the statistical significance of our regression coefficient.
 - In contrast, a t-statistic larger than +/-2 usually means that you can have over 95% confidence in your coefficient’s significance, and the larger the t-statistic, the more confidence you can have in your coefficient’s predictive power. 
-- **Interpreting p-values**
+- Interpreting p-values:
 - A p-values range from 0 to 1, and express the likelihood that our results are due to chance.
 - Typically, p-values under 0.05 are considered statistically significant
-- **Interpreting $R^2$ values**
+- Interpreting $R^2$ values:
 - 0% indicates that the model explains none of the variability of the response data around its mean. 
 - 100% indicates that the model explains all the variability of the response data around its mean. 
 
@@ -392,8 +392,7 @@ cor(data,use = "complete.obs",method = "pearson")
 
 *** =sct
 ```{r}
-test_object("Solution1")
-test_object("Solution2")
+test_error()
 success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don’t know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let’s keep going.")
 ```
 
@@ -650,7 +649,7 @@ C) Whether having health insurance makes people healthier.
 ```{r}
 msg1 = "Try again"
 msg2 = "Try again"
-msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
+msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
 msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the "outside option" of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes."
 msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
 msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
@@ -694,8 +693,8 @@ Data Dictionary:
    `value` - value of transaction in dollars
 
 *** =instructions
-- 1) Look at the data to see 
-- 2) 
+- 1) Look at a graph of the data to see if we have any patterns of when cash, credit, and debit are used.
+- 2) Create a table that shows the average purchase price by the type of payment, along with the standard errors.
 
 *** =pre_exercise_code
 ```{r}
@@ -1028,7 +1027,7 @@ msg1 = "Try again"
 msg2 = "Try again"
 msg3 = "Try again"
 msg4 = "Try again"
-msg5 = "Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a "fundamental" reason. That is, it could be overcome simply by raising enough money. And for (D), well, doing good research is a lot of work, but that’s no excuse!"
+msg5 = "Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a fundamental reason. That is, it could be overcome by simply raising enough money. And for (D), well, doing good research is a lot of work, but that’s no excuse!"
 msg6 = "Try again"
 msg7 = "Try again"
 msg8 = "Try again"
