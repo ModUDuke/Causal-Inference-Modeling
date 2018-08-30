@@ -223,7 +223,7 @@ model<-lm(consumption ~ children+age)
 
 # 2) What is the coefficient on `children`? Don't round the number.
 
-      solution2<-
+      Solution2<-
 
 # Nice going. This result gives us an estimate for how many pints of ice cream each child eats in a family.
 
@@ -235,7 +235,7 @@ model<-lm(consumption ~ children+age)
 *** =solution
 ```{r}
 summary(model)
-solution2<-3.5469
+Solution2<-3.5469
 solution3<-0.3380
 ```
 
@@ -252,7 +252,7 @@ success_msg("Good work! Our coefficient on `children` has an error margin of rou
 There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let’s look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
 
 *** =instructions
-- **Interpreting t-statistics:**
+- **Interpreting t-statistics**
 - A t-statistic of 0 is the worst case scenario. It means that we should have zero confidence in the statistical significance of our regression coefficient.
 - In contrast, a t-statistic larger than +/-2 usually means that you can have over 95% confidence in your coefficient’s significance, and the larger the t-statistic, the more confidence you can have in your coefficient’s predictive power. 
 - **Interpreting p-values**
