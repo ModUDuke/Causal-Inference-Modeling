@@ -2,6 +2,11 @@
 title       : "Modeling for Causal Inference"
 description : "This chapter will introduce you to modeling for causal inference"
 
+
+## OVERALL NOTE: I FEEL LIKE OUR CODING QUESTIONS SHOULD DEFAULT TO END WITH PEOPLE WRITING OUT AN ALGORITHM/MODEL BASED ON THEIR REGRESSION COEFFICIENTS. IT'S A MODELING CHAPTER, SO EACH CODING QUESTION SHOULD END WITH A MODEL, NOT JUST A VALUE.
+
+
+
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
 *** =video_link
@@ -846,7 +851,9 @@ payment        : choice of payment (cash, credit card, or debit card)
 value         : value of transaction in dollars
 
 *** =instructions
-- 1) Run a probit 
+- 1) Run a probit regression of `card` on `value`.
+- 2) What does this model say is the probability of using a card for a $10 item?
+- 3) What does this model say is the probability of using a card for a $200 item?
 
 *** =pre_exercise_code
 ```{r}
@@ -884,7 +891,7 @@ Data <- data.frame(ID,payment,value,reward)
 
 # 3) What probability does probit give you of using card change if the value of transaction is $200?
 
-
+```
 
 ## NOT SURE IF SOLUTIONS 2 AND 3 WORK
 
@@ -919,7 +926,10 @@ payment        : choice of payment (cash, credit card, or debit card)
 value         : value of transaction in dollars
 
 *** =instructions
--
+- 1) Look at a graph comparing logit and probit regressions on our data.
+- 2) Run a logit regression of `card` on `value`.
+- 3) What does this model say is the probability of using a card for a $10 item?
+- 4) What does this model say is the probability of using a card for a $200 item?
 
 ***=pre_exercise_code
 ```{r}
@@ -947,7 +957,7 @@ Data <- data.frame(ID,payment,value,reward)
 ***=sample_code
 ```{r}
 
-# We show the predicted probability of using cash in the following graph. Overall, you should see that in this case, the probit and logit regressions result in similar predicted probability. 
+# 1) The predicted probability of using cash can be seen by running the graph code below: 
 
 value <- Data$value
 plot(value,card,xlab = "value of transaction",ylab="probability of using card")
@@ -955,8 +965,8 @@ curve(predict(myprobit,data.frame(value=x),type="resp"),add=TRUE,col="red")
 curve(predict(mylogit,data.frame(value=x),type="resp"),add=TRUE,col="blue")
 legend("bottomright",legend = c("Probit","Logit"),col=c("red","blue"),inset = c(0.1,0.1),lwd=1)
 
+# Overall, you should see that in this case, the probit and logit regressions result in similar predicted probability. 
 
-## Logit Model 
 # In logit regression, the predicted values are calculated using:
 $P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
@@ -964,9 +974,14 @@ $P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
 
 
-# 2) Using a logit model, what's the expected probability of using card for a $10 transaction? How will the probability of using card change if the value of transaction is $200? Provide the R code below.
+# 2) Using a logit model, what's the expected probability of using card for a $10 transaction? Provide the R code below.
 
 
+
+# 3) How will the probability of using card change if the value of transaction is $200? Provide the R code below.
+
+
+```
 
 *** =solution
 ```{r}
@@ -1082,24 +1097,28 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 
 *** =instructions
--
+- 1) Get a sense of the variable names, types, and values in our dataset.
+- 2) Create a box plot that compares the amount a person drinks to how long they live.
+- 3) Run a regression to see the connection between wine consumption and the average age at death.
+- 4) Does the amount you exercise affect this relationship between wine drinking and lifespan?
+- 5) Run a regression on wine consumption and lifespan that compensates for exercise level.
 
 
 *** =sample_code
 ```{r}
 # Plotting the Age at Death among Different Drinking Levels
 
-# The primary outcome of interest is difference in age at death (`Age`) among different drinking levels (`Wine`).  The first 6 observations is below:
+# 1) The primary outcome of interest is difference in age at death (`Age`) among different drinking levels (`Wine`).  The first 6 observations is below:
 
 	head(Data.wine)
 
-# Create a box plot that plots the primary outcome as a function of drinking level. Use different plotting color for each drinking level. Make sure to include an informative title and axis labels. Is there any evidence of a relationship between the two variables? Provide the R code below.
+# 2) Create a box plot that plots the primary outcome as a function of drinking level. Use different plotting color for each drinking level. Make sure to include an informative title and axis labels. Is there any evidence of a relationship between the two variables? Provide the R code below.
 
 
 
 # The mean values of age at death look different, but are they? Let's use linear regression (lm) to find out. 
 
-# 2) Simply, regress `Age` on `Wine` and print the summary statistics. Please provide the R code below.
+# 3) Simply, regress `Age` on `Wine` and print the summary statistics. Please provide the R code below.
 
 
 
@@ -1107,13 +1126,11 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 # The results from simple regression show that moderate wine consumption is associated with longer life expectancy. However, can we draw the conclusion that moderate consumption of red wine promotes longevity? Moderate wine consumers may be more health-conscious and have better self-control. The might have other healthy habits (i.e., physical exercise) that contribute to longevity. 
 
-# 3) Create a 3 by 3 table that contains averages of `Exercise` by drinking level in the first column and the standard deviations of `Exercise` by drinking level in the second column. Provide the R code below. 
+# 4) Create a 3 by 3 table that contains averages of `Exercise` by drinking level in the first column and the standard deviations of `Exercise` by drinking level in the second column. Provide the R code below. 
 
 
 
-# Now, control for hours spent on exercise per week (`Exercise`) in the linear regression.
-
-# 4) Run a multiple linear regression of `Age` on `Wine` and `Exercise`. Please provide the R code below.
+# 5) Now, control for hours spent on exercise per week (`Exercise`) in the linear regression. Run a multiple linear regression of `Age` on `Wine` and `Exercise`. Please provide the R code below.
 
 
 
