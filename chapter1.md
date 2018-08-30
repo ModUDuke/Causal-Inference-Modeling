@@ -32,9 +32,9 @@ D) Learning the effect of the income tax on whether people participate in the la
 
 *** =sct
 ```{r}
-msg1 = “Try again“
-msg2 = “Try again”
-msg3 = “Try again“
+msg1 = "Try again"
+msg2 = "Try again"
+msg3 = "Try again"
 msg4 = "In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
 msg4 = "(B) and (D). These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
@@ -182,9 +182,9 @@ model<-100.2988 + 3.5469*children - 3.2950*age
 
 *** =sct
 ```{r}
-test_object("Solution1")
+test_object("regression")
 test_object("Solution2”)
-success_msg(“Nice job. The prediction equation is: consumption = 100.2988 + 3.5469*children - 3.2950*age.”)
+success_msg("Nice job. The prediction equation is: consumption = 100.2988 + 3.5469*children - 3.2950*age.")
 ```
 
 
@@ -242,9 +242,9 @@ solution3<-0.3380
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object(“Solution2”)
-test_object(“Solution3”)
-success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it’s hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.”) 
+test_object("Solution2")
+test_object("Solution3")
+success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it’s hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.") 
 ```
 
 
@@ -315,7 +315,7 @@ Solution3<-0.9384
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
+test_object("Solution2")
 test_object("Solution3”)
 success_msg("Good work! Our t-statistic is 10.10, well above the 2 that reflects 95% confidence in our coefficient. In addition, our p-value of 0.00000005115 is well below our 0.05 goal. Finally, our $R^$2 value says that the data explains 93.8% of the variability in the data. We can have extreme confidence that our calculated coefficient on `children` is statistically significant. That is, if we can trust our data!")
 ```
@@ -371,11 +371,11 @@ data$inc[data$inc<8] <-8
 
 # 2) Now that we know what variables are in the dataframe, think about what variables might have the largest and smallest correlations. Write down what pair of variables will be most correlated:
 
-      most.correlated<-“ “ and “ “
+      most.correlated<-" " and " "
 
 # 3) Now write down the pair of variables you think will be the least correlated:
 
-      least.correlated<-“ “ and “ “
+      least.correlated<-" " and " "
 
 # 4) Now let’s see what the biggest and smallest correlations are between them. Make a correlation matrix of `female`,`age`,`exp`,`educ` and `inc`.
 
@@ -392,7 +392,7 @@ cor(data,use = "complete.obs",method = "pearson")
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
+test_object("Solution2")
 success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don’t know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let’s keep going.")
 ```
 
@@ -454,14 +454,13 @@ data$inc[data$inc<8] <-8
 ```{r}
 Solution1<-lm(inc ~ female + exp + educ)
 summary(solution1)
-Solution2<-“female”
+Solution2<-"female"
 ```
 
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
-(add more for multi stage questions)
+test_object("Solution2")
 success_msg("Good work! While the data overall shows a positive correlation of gender, experience, and education  on an employee’s hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.")
 ```
 
@@ -530,8 +529,8 @@ Solution3<-0.33554
 
 *** =sct
 ```{r}
-test_object("Solution1")
-(add more for multi stage questions)
+test_object("Solution2")
+test_object("Solution3")
 success_msg("Good work! Let’s compare these values to those in the original regression, because any changes can reveal a bias working silently within our estimate.  That means that by themselves, the effects of `exp` and `educ` are trying to pushing our coefficient estimate higher, and that was hidden when we had `female` in the regression. But it also means that `female` had a non-zero effect on salary, so gender does indeed appear to be a factor. In fact, its negative relationship with salary is masking the positive effects of education and experience in our model.")
 ```
 
@@ -596,7 +595,7 @@ lm(inc ~ female + exp + educ)
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
+test_object("Solution2")
 success_msg("Nice job! In the end, our data supports a model of income that uses a combination of gender, experience, and education as its variables.")
 ```
 
@@ -609,7 +608,7 @@ success_msg("Nice job! In the end, our data supports a model of income that uses
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d81765e7b7
 ## Lots of Variables vs. Confounders in Discrete Choice Analysis 
-Someone says “I included over 1,000 variables in my analysis. Since I have so many control variables, I do not have to worry about confounders.” Do you agree?
+Someone says "I included over 1,000 variables in my analysis. Since I have so many control variables, I do not have to worry about confounders." Do you agree?
 
 *** =instructions
 - Maybe
@@ -618,8 +617,8 @@ Someone says “I included over 1,000 variables in my analysis. Since I have so 
 
 *** =sct
 ```{r}
-msg1 = “Try again“
-msg2 = “Try again“
+msg1 = "Try again"
+msg2 = "Try again"
 msg3 = "No! The total number of variables you include generally has no relationship to whether you have to worry about confounders or not. All of these 1,000 variables might be just randomly generated numbers from the computer. In that case it’s actually worse to include them than to leave them out! What matters is the substantive interpretations of these variables, and whether they measure all variables that might have a causal effect on outcomes."
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
@@ -648,10 +647,10 @@ C) Whether having health insurance makes people healthier.
 
 *** =sct
 ```{r}
-msg1 = “Try again“
-msg2 = “Try again”
-msg3 = “(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again.“
-msg4 = “Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the “outside option” of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes.”
+msg1 = "Try again"
+msg2 = "Try again"
+msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
+msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the “outside option” of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes."
 msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
 msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
 test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
@@ -676,7 +675,7 @@ Suppose that instead of the -0.4330 and -0.2127 coefficients we see in the first
 *** =sct
 ```{r}
 msg1 = "Try again"
-msg2 = “Correct. If the coefficient estimates are roughly the same, then that means people care about these two characteristics roughly the same. And that is exactly what we would expect a rational person to think. Now, you could actually justify (C) as being correct, since I didn’t tell you what the new confidence intervals / standard errors were! This is something we have to worry about in any finite sample, but here I’m ignoring it just for simplicity.”
+msg2 = "Correct. If the coefficient estimates are roughly the same, then that means people care about these two characteristics roughly the same. And that is exactly what we would expect a rational person to think. Now, you could actually justify (C) as being correct, since I didn’t tell you what the new confidence intervals / standard errors were! This is something we have to worry about in any finite sample, but here I’m ignoring it just for simplicity."
 msg3 = "Try again"
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
@@ -743,7 +742,6 @@ ddply(Data, ~payment, summarise, mean = mean (value), sd = sd(value))
 *** =sct
 ```{r}
 test_object("Solution1")
-(add more for multi stage questions)
 success_msg("Good work!")
 ```
 
@@ -828,10 +826,10 @@ solution4<-predict(solution2, data.frame(value = c(10,200)))
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
-test_object("Solution3”)
-test_object("Solution4”)
-success_msg("Good work! You should see that for a $10 transaction, the expected probability of using card is 22.71% . For a transaction with $200 value, your expected probability of using card should be 131.72%. But that second number is a problem: how can a probability larger than 100%? It cannot. This is the problem with the Linear Probability Model (LPM). The model can actually produce probabilities outside [0,1]. ")
+test_object("Solution2")
+test_object("Solution3")
+test_object("Solution4")
+success_msg("Good work! You should see that for a $10 transaction, the expected probability of using card is 22.71% . For a transaction with $200 value, your expected probability of using card should be 131.72%. But that second number is a problem: how can a probability larger than 100%? It cannot. This is the problem with the Linear Probability Model (LPM). The model can actually produce probabilities outside [0,1].")
 ```
 
 
@@ -906,8 +904,8 @@ predict(myprobit, data.frame(value = c(10,200)), type = "response")
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
-test_object("Solution3”)
+test_object("Solution2")
+test_object("Solution3")
 success_msg("Good work! Now we see that the predicted probabilities fall within 0 and 1.")
 ```
 
@@ -1028,12 +1026,12 @@ D) States that don't have the death penalty also tend to legalize more recreatio
 ```{r}
 msg1 = "Try again"
 msg2 = "Try again"
-msg3 = “Try again“
-msg4 = “Try again“
-msg5 = “Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a “fundamental” reason. That is, it could be overcome simply by raising enough money. And for (D), well, doing good research is a lot of work, but that’s no excuse!”
-msg6 = “Try again”
-msg7 = “Try again”
-msg8 = “Try again
+msg3 = "Try again"
+msg4 = "Try again"
+msg5 = "Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a "fundamental" reason. That is, it could be overcome simply by raising enough money. And for (D), well, doing good research is a lot of work, but that’s no excuse!"
+msg6 = "Try again"
+msg7 = "Try again"
+msg8 = "Try again"
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg8))
 ```
 
@@ -1054,9 +1052,9 @@ True or false: The 2009 stimulus worked and helped end the Great Recession.
 
 *** =sct
 ```{r}
-msg1 = “It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
-msg2 = “It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)”
-msg3 = “It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem!"
+msg1 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
+msg2 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
+msg3 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem!"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
