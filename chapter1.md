@@ -241,7 +241,6 @@ solution3<-0.3380
 
 *** =sct
 ```{r}
-test_object("Solution1")
 test_object("Solution2")
 test_object("Solution3")
 success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it’s hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.") 
@@ -308,7 +307,7 @@ summary(model)
 *** =solution
 ```{r}
 Solution1<-10.10
-Solution2<- 5.115x10e-11
+Solution2<-5.115x10e-11
 Solution3<-0.9384
 ```
 
