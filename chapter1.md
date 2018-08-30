@@ -79,13 +79,13 @@ icecream <- data.frame(consumption, children, age)
 
 *** =sample_code
 ```{r}
-# 1) First, let’s take a quick glance at how the data is formatted. We can do this by looking at the first 6 observations with the head() command, so insert the name of our dataframe, icecream, into the head() command:
+# 1) First, let's take a quick glance at how the data is formatted. We can do this by looking at the first 6 observations with the head() command, so insert the name of our dataframe, icecream, into the head() command:
 
 
 
 # Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
 
-# 2a)We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We’ve done the first one for you, so select the following code and hit the "Run Code" button:
+# 2a)We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We've done the first one for you, so select the following code and hit the "Run Code" button:
 
    summary(icecream$consumption)
 
@@ -97,7 +97,7 @@ icecream <- data.frame(consumption, children, age)
 
 
 
-# 3) Good, it looks like the kids are as old as, well, kids. Now let’s find out how many children are in our biggest family. If it's a number like 99, it's probably a typo and we should ignore it. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
+# 3) Good, it looks like the kids are as old as, well, kids. Now let's find out how many children are in our biggest family. If it's a number like 99, it's probably a typo and we should ignore it. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
 
 
 
@@ -120,7 +120,7 @@ success_msg("As you can see, the largest family in this sample is unusually big 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:de1f3cbf85
 
 ## Kids Love Ice Cream: Part 2 - Ordinary Least Squares Regression (OLS) 
-It can be a bit difficult to decide where to start looking for connections, so let’s begin with a question to help us frame the situation. Since we can guess that kids love ice cream, and that kids may eat more ice cream as they get older, does our data show any relationship between total ice cream consumption and the ages and number of children in a family?  Let's find the correlation between the number of children, their ages, and family ice cream consumption through a basic linear regression.
+It can be a bit difficult to decide where to start looking for connections, so let's begin with a question to help us frame the situation. Since we can guess that kids love ice cream, and that kids may eat more ice cream as they get older, does our data show any relationship between total ice cream consumption and the ages and number of children in a family?  Let's find the correlation between the number of children, their ages, and family ice cream consumption through a basic linear regression.
 
 Data Dictionary:
    `consumption` - ice cream consumption (in pints)
@@ -155,11 +155,11 @@ icecream <- data.frame(consumption, children, age)
 ```{r}
 # 1) The first step is to generate the results of a linear regression that looks at the correlation between our demographic variables and total ice cream consumption by each family. First use the `lm` function to create a linear regression of children and age on outcome variable, ice cream consumption:
 
-# Note: If you’ve never run a regression with multiple independent variables in R before, the format for the lm() function is: lm(outcome ~ variable1+variable2))
+# Note: If you've never run a regression with multiple independent variables in R before, the format for the lm() function is: lm(outcome ~ variable1+variable2))
 
       regression<-
 
-# 2) Great. Now we’ll repeat that code, but within the lm.out() function, which will output the linear regression. 
+# 2) Great. Now we'll repeat that code, but within the lm.out() function, which will output the linear regression. 
 
 # 3) Now run the summary() function on Solution1 to look at the correlation. Note the tour y intercept shows the base level of ice cream eaten in families with no children: 
 
@@ -191,7 +191,7 @@ success_msg("Nice job. The prediction equation is: consumption = 100.2988 + 3.54
 --- type:NormalExercise lang:r xp:50 skills:1 key:495f3df509
 
 ## Kids Love Ice Cream: Part 3 - Understanding the Output Table
-Running a regression is the easy part, and before we can finish our argument for causality, we need to interpret our regression in the context of your theoretical framework, central question, and the limitations of your data. So let’s break down the numbers and look at what they can (or can’t) tell us about our main question about kids and ice cream consumption.
+Running a regression is the easy part, and before we can finish our argument for causality, we need to interpret our regression in the context of your theoretical framework, central question, and the limitations of your data. So let's break down the numbers and look at what they can (or can't) tell us about our main question about kids and ice cream consumption.
 
 *** =pre_exercise_code
 ```{r}
@@ -215,7 +215,7 @@ model<-lm(consumption ~ children+age)
 
 *** =sample_code
 ```{r}
-# 1) There are several relationships we could choose to understand better, but let’s start with a single but important one. What does our regression help illuminate between the number of children in a family and its total ice cream consumption?
+# 1) There are several relationships we could choose to understand better, but let's start with a single but important one. What does our regression help illuminate between the number of children in a family and its total ice cream consumption?
 
 # First, run the summary command again on our equation of our first regression, `model`.
 
@@ -243,22 +243,22 @@ Solution3<-0.3380
 ```{r}
 test_object("Solution2")
 test_object("Solution3")
-success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it’s hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.") 
+success_msg("Good work! Our coefficient on `children` has an error margin of roughly +/- 0.3, or a little less than 10%. It would be great if that error margin were smaller, and sometimes it's hard to tell at a glance whether that standard error should change our interpretation about the strength of our results.") 
 ```
 
 
 --- type:NormalExercise lang:r xp:50 skills:1 key:a451f86d7c
 ## Kids Love Ice Cream: Part 4 - Statistical Significance Checks
-There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let’s look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
+There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let's look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
 
 *** =instructions
-- Interpreting t-statistics:
+- **Interpreting t-statistics**
 - A t-statistic of 0 is the worst case scenario. It means that we should have zero confidence in the statistical significance of our regression coefficient.
-- In contrast, a t-statistic larger than +/-2 usually means that you can have over 95% confidence in your coefficient’s significance, and the larger the t-statistic, the more confidence you can have in your coefficient’s predictive power. 
-- Interpreting p-values:
+- In contrast, a t-statistic larger than +/-2 usually means that you can have over 95% confidence in your coefficient's significance, and the larger the t-statistic, the more confidence you can have in your coefficient's predictive power. 
+- **Interpreting p-values**
 - A p-values range from 0 to 1, and express the likelihood that our results are due to chance.
 - Typically, p-values under 0.05 are considered statistically significant
-- Interpreting $R^2$ values:
+- **Interpreting $R^2$ values**
 - 0% indicates that the model explains none of the variability of the response data around its mean. 
 - 100% indicates that the model explains all the variability of the response data around its mean. 
 
@@ -278,7 +278,7 @@ summary(model)
 
 *** =sample_code
 ```{r}
-# We calculate the t-statistic by dividing the regression coefficient by its standard error—it’s a quick way to help us see how precise our regression coefficient is. It can be positive or negative, but for now you can ignore the sign and look at the size of the result to learn about how statistically significant our coefficient is.
+# We calculate the t-statistic by dividing the regression coefficient by its standard error—it's a quick way to help us see how precise our regression coefficient is. It can be positive or negative, but for now you can ignore the sign and look at the size of the result to learn about how statistically significant our coefficient is.
 
 # 1) What's the t-statistic for the coefficient on `children`? Don't round the number.
 
@@ -286,17 +286,17 @@ summary(model)
 
 # Nice. That is pretty far from 0 for a t-statistic, so we can very safely say that this is a statistically significant result.
 
-# Another test we can use is the p-value, which is a more common (and misused!) statistic that returns a value between 0 and 1. Let’s see if our p-value is under 0.05, which is a standard goal for significance.
+# Another test we can use is the p-value, which is a more common (and misused!) statistic that returns a value between 0 and 1. Let's see if our p-value is under 0.05, which is a standard goal for significance.
 
-# 2) What’s the p-value for our regression? Don't round the number.
+# 2) What's the p-value for our regression? Don't round the number.
 
       Solution2<-
 
-# Good. It’s very safe to interpret that as a very strong sign of statistical significance!
+# Good. It's very safe to interpret that as a very strong sign of statistical significance!
 
-# You now want to make sure that your regression closely represents what’s happening in  your actual data. The $R^2$ coefficient of determination is a statistical measure of how well a linear regression line approximates the real data points. It tells you how much of the scattering of data points around the mean is explained by the model, from 0% - 100%.
+# You now want to make sure that your regression closely represents what's happening in  your actual data. The $R^2$ coefficient of determination is a statistical measure of how well a linear regression line approximates the real data points. It tells you how much of the scattering of data points around the mean is explained by the model, from 0% - 100%.
 
-# Of course, it’s not always that simple if your data is nonlinear or on a subject that’s generally hard to predict, so we can’t always assume that a high $R^2$ is better than a low $R^2$. 
+# Of course, it's not always that simple if your data is nonlinear or on a subject that's generally hard to predict, so we can't always assume that a high $R^2$ is better than a low $R^2$. 
 
 # 3) In this case, R-squared is a useful term, which is termed "Multiple R Squared" in this table to distinguish it from a different measure called Adjusted R Squared. What is the Multiple R-squared value is of this model? Don't round the number.
 
@@ -323,9 +323,9 @@ success_msg("Good work! Our t-statistic is 10.10, well above the 2 that reflects
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:95ac91e75f
 ## Income Inequality at FutureChew: Part 1 - Data Discovery
 
-Food-focused software company FutureChew is growing, and like in many companies, the Director of Human Resources has noticed that the female employees are somehow getting paid slightly less than their male coworkers. The Director doesn’t think it’s due to their company hiring policies, but she’s not sure exactly what’s going on, so she asks her data analyst to use the information in their employee database to help find any causes for this. She knows it would be highly unethical to run an experiment that randomly changed people’s salaries, so she’s looking to models for an understanding of the situation. She also knows that it will be complicated, and the answer might not be completely clear.
+Food-focused software company FutureChew is growing, and like in many companies, the Director of Human Resources has noticed that the female employees are somehow getting paid slightly less than their male coworkers. The Director doesn't think it's due to their company hiring policies, but she's not sure exactly what's going on, so she asks her data analyst to use the information in their employee database to help find any causes for this. She knows it would be highly unethical to run an experiment that randomly changed people's salaries, so she's looking to models for an understanding of the situation. She also knows that it will be complicated, and the answer might not be completely clear.
 
-We shall take the role of this analyst, and let’s start by looking at the hourly income for men and women at FutureChew. Here is a dataset `data` has 20 observations.
+We shall take the role of this analyst, and let's start by looking at the hourly income for men and women at FutureChew. Here is a dataset `data` has 20 observations.
 
 Data dictionary:
 
@@ -362,7 +362,7 @@ data$inc[data$inc<8] <-8
 *** =sample_code
 ```{r}
 ## Correlation
-# Let’s start by generating a correlation matrix. This will show us the correlations between different pairs of variables, which can give us a general sense of what variables seem to be connected in our data (either positively or negatively). And luckily for us, we don’t have many variables to consider—it’s a different story when you have thousands to look at!
+# Let's start by generating a correlation matrix. This will show us the correlations between different pairs of variables, which can give us a general sense of what variables seem to be connected in our data (either positively or negatively). And luckily for us, we don't have many variables to consider—it's a different story when you have thousands to look at!
 
 # 1 ) Run the head() command to take a look at the first 6 rows of the dataframe `data`. This will tell us the variable names and some of their values:
 
@@ -376,7 +376,7 @@ data$inc[data$inc<8] <-8
 
       least.correlated<-" " and " "
 
-# 4) Now let’s see what the biggest and smallest correlations are between them. Make a correlation matrix of `female`,`age`,`exp`,`educ` and `inc`.
+# 4) Now let's see what the biggest and smallest correlations are between them. Make a correlation matrix of `female`,`age`,`exp`,`educ` and `inc`.
 
       
       
@@ -393,7 +393,7 @@ cor(data,use = "complete.obs",method = "pearson")
 *** =sct
 ```{r}
 test_error()
-success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don’t know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let’s keep going.")
+success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don't know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let's keep going.")
 ```
 
 
@@ -405,11 +405,11 @@ success_msg("Good work! Great job. Take a look at the results, and look at the c
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:395da70ba8
 
 ## Income Inequality at FutureChew: Part 2 - OLS Regression 
-The Director tells you that the company tries to ignore an employee’s age when setting their salary, so you assume that’s true and think about a model that bases income just on education, experience, and gender, like the following:
+The Director tells you that the company tries to ignore an employee's age when setting their salary, so you assume that's true and think about a model that bases income just on education, experience, and gender, like the following:
 
 $inc=\alpha+\beta_1educ+\beta_2exp+\beta_3female+u$,where $u$ is random error.
 
-So let’s check out whether these variables seem to be correlated with salary in our data.
+So let's check out whether these variables seem to be correlated with salary in our data.
 
 *** =instructions
 - 1) Start with a simple regression
@@ -437,11 +437,11 @@ data$inc[data$inc<8] <-8
 
 *** =sample_code
 ```{r}
-# 1) We can use regression to help us determine the coefficients for each of these factors in an employee’s income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
+# 1) We can use regression to help us determine the coefficients for each of these factors in an employee's income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
 
       solution1<-
 
-# Great. The regression coefficient estimate in the (Intercept) row is suggesting that there’s a positive relationship between these variables and someone’s hourly wage at FutureChew. Now let’s dig down and find out more about what this regression can (or can’t) tell us. 
+# Great. The regression coefficient estimate in the (Intercept) row is suggesting that there's a positive relationship between these variables and someone's hourly wage at FutureChew. Now let's dig down and find out more about what this regression can (or can't) tell us. 
 
 # 2) Which variable has a negative effect on income?
 
@@ -461,7 +461,7 @@ Solution2<-"female"
 ```{r}
 test_object("Solution1")
 test_object("Solution2")
-success_msg("Good work! While the data overall shows a positive correlation of gender, experience, and education  on an employee’s hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.")
+success_msg("Good work! While the data overall shows a positive correlation of gender, experience, and education  on an employee's hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.")
 ```
 
 
@@ -473,7 +473,7 @@ success_msg("Good work! While the data overall shows a positive correlation of g
 
 ## Income Inequality at FutureChew: Part 3 -Omitted Variable Bias
 
-As we know, we don’t want to omit any variables in our regression that might be affecting outcomes, because that would create a bias in our results. However, we can also use the "omitted variable bias" as a tool to check whether our first guess at important factors was correct—if we remove a variable and nothing changes in our estimate, then that variable was probably not necessary. If we omit a variable and our estimate does change, the size and direction of the difference can show us more about the relationships between the variables, namely which ones are pushing our estimates up or down in any significant way. 
+As we know, we don't want to omit any variables in our regression that might be affecting outcomes, because that would create a bias in our results. However, we can also use the "omitted variable bias" as a tool to check whether our first guess at important factors was correct—if we remove a variable and nothing changes in our estimate, then that variable was probably not necessary. If we omit a variable and our estimate does change, the size and direction of the difference can show us more about the relationships between the variables, namely which ones are pushing our estimates up or down in any significant way. 
 
 *** =instructions
 - 1) Run a regression on the data that omits the variable `female`.
@@ -502,17 +502,17 @@ model<-lm(inc ~ female + exp + educ)
 *** =sample_code
 ```{r}
 
-# While the data overall shows a positive correlation of gender, experience, and education  on an employee’s hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.
+# While the data overall shows a positive correlation of gender, experience, and education  on an employee's hourly wage, it seems that the company does tend to pay their women less: this regression says that being female seems to put a downward pressure on your income.
 
-# 1) In this case, let’s remove our gender variable from the regression to see if that makes any difference at all. Omit `female` from the regression, and just regress `inc` on `exp`, and `educ`. Then use the summary() command to see the results.
+# 1) In this case, let's remove our gender variable from the regression to see if that makes any difference at all. Omit `female` from the regression, and just regress `inc` on `exp`, and `educ`. Then use the summary() command to see the results.
 
      lm.out2<-
 
-# 2) In our original regression that included `female`, the coefficient for experience was 0.25116. What is the coefficient on `exp` now that we’ve omitted `female`? Don't round the number.
+# 2) In our original regression that included `female`, the coefficient for experience was 0.25116. What is the coefficient on `exp` now that we've omitted `female`? Don't round the number.
 
      solution2<-
 
-# 3) Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we’ve omitted `female`? Don't round the number.
+# 3) Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we've omitted `female`? Don't round the number.
 
      solution3<-
 
@@ -531,7 +531,7 @@ Solution3<-0.33554
 ```{r}
 test_object("Solution2")
 test_object("Solution3")
-success_msg("Good work! Let’s compare these values to those in the original regression, because any changes can reveal a bias working silently within our estimate.  That means that by themselves, the effects of `exp` and `educ` are trying to pushing our coefficient estimate higher, and that was hidden when we had `female` in the regression. But it also means that `female` had a non-zero effect on salary, so gender does indeed appear to be a factor. In fact, its negative relationship with salary is masking the positive effects of education and experience in our model.")
+success_msg("Good work! Let's compare these values to those in the original regression, because any changes can reveal a bias working silently within our estimate.  That means that by themselves, the effects of `exp` and `educ` are trying to pushing our coefficient estimate higher, and that was hidden when we had `female` in the regression. But it also means that `female` had a non-zero effect on salary, so gender does indeed appear to be a factor. In fact, its negative relationship with salary is masking the positive effects of education and experience in our model.")
 ```
 
 
@@ -541,7 +541,7 @@ success_msg("Good work! Let’s compare these values to those in the original re
 
 ## Income Inequality at FutureChew: Part  4 - Multicollinearity
 
-But there’s more to this than just gender, education, and experience. There’s also the factor of the employee’s age: they might be surprisingly young for their education and experience, or they might be much older but still very new to the profession. However, we know that many of these variables will run in parallel: the older you are, the more likely you are to have more experience and more education. If we look at the details, are these variables actually functioning very differently from each other? Or are they so similar that we can drop one from our regression to make our lives simpler?
+But there's more to this than just gender, education, and experience. There's also the factor of the employee's age: they might be surprisingly young for their education and experience, or they might be much older but still very new to the profession. However, we know that many of these variables will run in parallel: the older you are, the more likely you are to have more experience and more education. If we look at the details, are these variables actually functioning very differently from each other? Or are they so similar that we can drop one from our regression to make our lives simpler?
 
 *** =instructions
 - 1) Add a variable for age into our regression and see what happens.
@@ -570,7 +570,7 @@ model<-lm(inc ~ female + exp + educ)
 *** =sample_code
 ```{r}
 
-# 1) Let’s start with the basics by including `age` in the regression. Regress `inc` on `female`,`age`,`exp`, and `educ`. Then output the results with the summary function.
+# 1) Let's start with the basics by including `age` in the regression. Regress `inc` on `female`,`age`,`exp`, and `educ`. Then output the results with the summary function.
 
 	Solution1<-
 
@@ -619,7 +619,7 @@ Someone says "I included over 1,000 variables in my analysis. Since I have so ma
 ```{r}
 msg1 = "Try again"
 msg2 = "Try again"
-msg3 = "No! The total number of variables you include generally has no relationship to whether you have to worry about confounders or not. All of these 1,000 variables might be just randomly generated numbers from the computer. In that case it’s actually worse to include them than to leave them out! What matters is the substantive interpretations of these variables, and whether they measure all variables that might have a causal effect on outcomes."
+msg3 = "No! The total number of variables you include generally has no relationship to whether you have to worry about confounders or not. All of these 1,000 variables might be just randomly generated numbers from the computer. In that case it's actually worse to include them than to leave them out! What matters is the substantive interpretations of these variables, and whether they measure all variables that might have a causal effect on outcomes."
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
@@ -631,7 +631,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:fe92309865
 ## Policy Questions About Health Insurance 
-What policy questions might we be able to answer if we knew people’s preferences over health insurance plans?
+What policy questions might we be able to answer if we knew people's preferences over health insurance plans?
 
 A) The effect of lowering health insurance premiums on the number of unemployed people.
 B) Whether people care more about having prescription drugs covered or having contraceptive use covered.
@@ -649,10 +649,10 @@ C) Whether having health insurance makes people healthier.
 ```{r}
 msg1 = "Try again"
 msg2 = "Try again"
-msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
-msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the "outside option" of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes."
-msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
-msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
+msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
+msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the "outside option" of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes."
+msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
+msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
 test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 ```
 
@@ -675,7 +675,7 @@ Suppose that instead of the -0.4330 and -0.2127 coefficients we see in the first
 *** =sct
 ```{r}
 msg1 = "Try again"
-msg2 = "Correct. If the coefficient estimates are roughly the same, then that means people care about these two characteristics roughly the same. And that is exactly what we would expect a rational person to think. Now, you could actually justify (C) as being correct, since I didn’t tell you what the new confidence intervals / standard errors were! This is something we have to worry about in any finite sample, but here I’m ignoring it just for simplicity."
+msg2 = "Correct. If the coefficient estimates are roughly the same, then that means people care about these two characteristics roughly the same. And that is exactly what we would expect a rational person to think. Now, you could actually justify (C) as being correct, since I didn't tell you what the new confidence intervals / standard errors were! This is something we have to worry about in any finite sample, but here I'm ignoring it just for simplicity."
 msg3 = "Try again"
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
@@ -684,7 +684,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:f723ff2d39
 ## Cash or Card? Part 1 - Data Discovery in a Table
 
-Consumers today have many payment options, and the small town West Cargo Bank is interested in learning the probability of someone using cash or a card in a store or restaurant. They are thinking that cash may be used more frequently at low value transactions, but debit and credit cards might be used more intensively in higher value transactions for record keeping purposes. The Bank knows they can’t control how credit cards and cash are used in the macroeconomy, so instead they look to model these systems based on the data they have.  The data set `Data` contains 3 variables and 72 observations. The data dictionary is below.
+Consumers today have many payment options, and the small town West Cargo Bank is interested in learning the probability of someone using cash or a card in a store or restaurant. They are thinking that cash may be used more frequently at low value transactions, but debit and credit cards might be used more intensively in higher value transactions for record keeping purposes. The Bank knows they can't control how credit cards and cash are used in the macroeconomy, so instead they look to model these systems based on the data they have.  The data set `Data` contains 3 variables and 72 observations. The data dictionary is below.
 
 Data Dictionary:
 
@@ -837,7 +837,7 @@ success_msg("Good work! You should see that for a $10 transaction, the expected 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:cbe1960334
 ## Cash or Card? Part 3 - Probit Model
 
-Let’s try to work around the issues with the LPM results by using a probit model instead. In probit regression, the predicted values are calculated using as a cumulative probability distribution function of standard normal distribution, which starts out at 0 and maxes out at 1, like this:
+Let's try to work around the issues with the LPM results by using a probit model instead. In probit regression, the predicted values are calculated using as a cumulative probability distribution function of standard normal distribution, which starts out at 0 and maxes out at 1, like this:
  
 $P (Y = 1|X) = \phi(\hat{\beta_{0}}+\hat{\beta_{1}}X)$
 
@@ -915,7 +915,7 @@ success_msg("Good work! Now we see that the predicted probabilities fall within 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ed84d2c77d
 
 ## Cash or Card, Part 4 - Probit or Logit?
-There’s another kind of probability model that we should check before we’re done called a legit model, and it’s often done as a counterpart to probit models. In logit regression, the predicted values are calculated using: 
+There's another kind of probability model that we should check before we're done called a legit model, and it's often done as a counterpart to probit models. In logit regression, the predicted values are calculated using: 
 
 $P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
@@ -1004,7 +1004,7 @@ success_msg("Good work!")
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e26d5f2fe4
 ## Why Might Experiments Be Impossible?
-What are some reasons why we can’t do randomized experiments?
+What are some reasons why we can't do randomized experiments?
 
 A) High rates of violence encourages states to instate a death penalty.
 B) States that have the death penalty tend to have lower education, and education reduces violent behavior.
@@ -1027,7 +1027,7 @@ msg1 = "Try again"
 msg2 = "Try again"
 msg3 = "Try again"
 msg4 = "Try again"
-msg5 = "Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a fundamental reason. That is, it could be overcome by simply raising enough money. And for (D), well, doing good research is a lot of work, but that’s no excuse!"
+msg5 = "Correct! (C) might be a practical reason that prevents us from doing an experiment, but it is not a fundamental reason. That is, it could be overcome by simply raising enough money. And for (D), well, doing good research is a lot of work, but that's no excuse!"
 msg6 = "Try again"
 msg7 = "Try again"
 msg8 = "Try again"
@@ -1047,20 +1047,20 @@ True or false: The 2009 stimulus worked and helped end the Great Recession.
 *** =instructions
 - We have proved that it did work
 - The data shows it had no effect
-- I can’t tell either way
+- I can't tell either way
 
 *** =sct
 ```{r}
-msg1 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
-msg2 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
-msg3 = "It’s a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem!"
+msg1 = "It's a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
+msg2 = "It's a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem! (hint: put on your serious scientist hat and try again)"
+msg3 = "It's a good and important question, but unfortunately since we cannot observe the counterfactual outcome, the answer is not clear. Macroeconomists are still working to overcome this very difficult problem!"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:326e16239a
 ## Red Wine: the Secret to Living Longer?
 
-Red wine has resveratrol, a substance that reduces the risk for heart disease. Moderate consumption of red wine is believed to promote longevity. Jenny is very health-conscious and wants to figure out whether red wine is a longevity promoter. She is interested in examining the effect of wine consumption on longevity. She doesn’t have the capacity to run a huge medical experiment herself, so she decides to instead download some public data and develop some models to see what she can learn. The data set `Data.wine` contains 4 variables and 60 observations. The data dictionary is below.
+Red wine has resveratrol, a substance that reduces the risk for heart disease. Moderate consumption of red wine is believed to promote longevity. Jenny is very health-conscious and wants to figure out whether red wine is a longevity promoter. She is interested in examining the effect of wine consumption on longevity. She doesn't have the capacity to run a huge medical experiment herself, so she decides to instead download some public data and develop some models to see what she can learn. The data set `Data.wine` contains 4 variables and 60 observations. The data dictionary is below.
 
 Data Dictionary:
    `ID` - subject identifier
