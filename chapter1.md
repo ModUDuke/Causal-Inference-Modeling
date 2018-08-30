@@ -307,7 +307,7 @@ summary(model)
 *** =solution
 ```{r}
 Solution1<-10.10
-Solution2<-5.115x10e-11
+Solution2<-5.115e-11
 Solution3<-0.9384
 ```
 
@@ -650,7 +650,7 @@ C) Whether having health insurance makes people healthier.
 msg1 = "Try again"
 msg2 = "Try again"
 msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
-msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the "outside option" of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes."
+msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the 'outside option' of not getting any health insurance plan and hence going uninsured—-if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes."
 msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
 msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people's preferences over insurance plans, we still don't have any data on health *outcomes* and hence preference data alone isn't enough to learn about the effect of insurance on outcomes. Try again."
 test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
@@ -1112,7 +1112,7 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 # 2) Create a box plot that plots the primary outcome as a function of drinking level. Use different plotting color for each drinking level. Make sure to include an informative title and axis labels. Is there any evidence of a relationship between the two variables? Provide the R code below.
 
-	solution2<-
+	Solution2<-
 
 # The mean values of age at death look different, but are they? Let's use linear regression (lm) to find out. 
 
@@ -1139,10 +1139,10 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 *** =solution
 ```{r}
 plot(Data.wine$Wine, Data.wine$Age, main = "Difference in Age at Death", ylab = "Age at Death", xlab = "Drinking Level", col = col)
-solution2<-lm(Age ~ Wine))
+Solution2<-lm(Age ~ Wine)
 	summary(solution2)
 ddply(Data.wine,~Wine, summarise, mean = mean (Exercise), sd = sd(Exercise))
-solution5<-lm(Age ~ Wine + Exercise))
+Solution5<-lm(Age ~ Wine + Exercise)
 	summary(solution5)
 ```
 
