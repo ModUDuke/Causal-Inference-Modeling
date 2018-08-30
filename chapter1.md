@@ -1140,10 +1140,10 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 ```{r}
 plot(Data.wine$Wine, Data.wine$Age, main = "Difference in Age at Death", ylab = "Age at Death", xlab = "Drinking Level", col = col)
 Solution2<-lm(Age ~ Wine)
-	summary(solution2)
+	summary(Solution2)
 ddply(Data.wine,~Wine, summarise, mean = mean (Exercise), sd = sd(Exercise))
 Solution5<-lm(Age ~ Wine + Exercise)
-	summary(solution5)
+	summary(Solution5)
 ```
 
 *** =sct
