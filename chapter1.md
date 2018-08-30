@@ -236,7 +236,7 @@ model<-lm(consumption ~ children+age)
 ```{r}
 summary(model)
 Solution2<-3.5469
-solution3<-0.3380
+Solution3<-0.3380
 ```
 
 *** =sct
