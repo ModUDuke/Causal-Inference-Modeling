@@ -1,7 +1,7 @@
 --- 
 title       : 'Modeling for Causal Inference'
 description : 'This chapter will introduce you to modeling for causal inference'
----
+
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
@@ -608,7 +608,7 @@ success_msg("Nice job! In the end, our data supports a model of income that uses
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d81765e7b7
-## Confounders in Discrete Choice Analysis 
+## Lots of Variables vs. Confounders in Discrete Choice Analysis 
 Someone says “I included over 1,000 variables in my analysis. Since I have so many control variables, I do not have to worry about confounders.” Do you agree?
 
 *** =instructions
