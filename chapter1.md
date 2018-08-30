@@ -58,7 +58,7 @@ Data Dictionary:
  
 *** =instructions
 - 1) Get a quick sense of the variable names and variable types 
-- 2) show the descriptive statistics of `consumption`, `children`, and `age`. 
+- 2) Show the descriptive statistics of `consumption`, `children`, and `age`. 
 - 3) What's the maximum number of children in a family for this sample?
 
 *** =pre_exercise_code
@@ -85,19 +85,20 @@ icecream <- data.frame(consumption, children, age)
 
 # Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
 
-# We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We’ve done the first one for you, so select the following code and hit the “Run Code” button:
+# 2a)We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We’ve done the first one for you, so select the following code and hit the "Run Code" button:
 
    summary(icecream$consumption)
 
-# 2) Now repeat this command, but for the variable `children`:
+# 2b) Woah, that's a lot of pints for a typical family in a year. Now repeat this command, but for the variable `children`:
 
 
 
-3) Now repeat the summary command again, but for the variable `age`:
+# 2c) Okay, the median number of children is 1, which sounds pretty normal. Now repeat the summary command again, but for the variable `age`:
 
 
 
-# Now let’s find out the largest number of children in any one family. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
+# 3) Good, it looks like the kids are as old as, well, kids. Now let’s find out how many children are in our biggest family. If it's a number like 99, it's probably a typo and we should ignore it. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
+
 
 
 ```
@@ -162,7 +163,7 @@ icecream <- data.frame(consumption, children, age)
 
 # 3) Now run the summary() function on Solution1 to look at the correlation. Note the tour y intercept shows the base level of ice cream eaten in families with no children: 
 
-      solution2<-
+      Solution2<-
 
 # 4) Fill in the blanks of the following equation to create a model for family ice cream consumption based on our regression results from Solution2 (and don't round the numbers!):
 
@@ -174,7 +175,7 @@ icecream <- data.frame(consumption, children, age)
 *** =solution
 ```{r} 
 regression<-lm(consumption~age+children)
-solution2<-summary(regression)
+Solution2<-summary(regression)
 model<-100.2988 + 3.5469*children - 3.2950*age
 ```
 
@@ -182,7 +183,7 @@ model<-100.2988 + 3.5469*children - 3.2950*age
 *** =sct
 ```{r}
 test_object("regression")
-test_object("Solution2”)
+test_object("Solution2")
 success_msg("Nice job. The prediction equation is: consumption = 100.2988 + 3.5469*children - 3.2950*age.")
 ```
 
@@ -290,7 +291,7 @@ summary(model)
 
 # 2) What’s the p-value for our regression? Don't round the number.
 
-      solution2<-
+      Solution2<-
 
 # Good. It’s very safe to interpret that as a very strong sign of statistical significance!
 
@@ -298,7 +299,7 @@ summary(model)
 
 # Of course, it’s not always that simple if your data is nonlinear or on a subject that’s generally hard to predict, so we can’t always assume that a high $R^2$ is better than a low $R^2$. 
 
-# 3) In this case, R-squared is a useful term, which is termed “Multiple R Squared” in this table to distinguish it from a different measure called Adjusted R Squared. What is the Multiple R-squared value is of this model? Don't round the number.
+# 3) In this case, R-squared is a useful term, which is termed "Multiple R Squared" in this table to distinguish it from a different measure called Adjusted R Squared. What is the Multiple R-squared value is of this model? Don't round the number.
 
       Solution3<-
 
@@ -315,7 +316,7 @@ Solution3<-0.9384
 ```{r}
 test_object("Solution1")
 test_object("Solution2")
-test_object("Solution3”)
+test_object("Solution3")
 success_msg("Good work! Our t-statistic is 10.10, well above the 2 that reflects 95% confidence in our coefficient. In addition, our p-value of 0.00000005115 is well below our 0.05 goal. Finally, our $R^$2 value says that the data explains 93.8% of the variability in the data. We can have extreme confidence that our calculated coefficient on `children` is statistically significant. That is, if we can trust our data!")
 ```
 
@@ -378,6 +379,8 @@ data$inc[data$inc<8] <-8
 
 # 4) Now let’s see what the biggest and smallest correlations are between them. Make a correlation matrix of `female`,`age`,`exp`,`educ` and `inc`.
 
+      
+      
 ```
 
 # SHOULD WE EVEN PUT THOSE GUESS STRINGS FROM 2 & 3 INTO DATAFRAMES, OR JUST LEAVE THE ENTRY LINES BLANK SINCE WE WON'T CHECK THEM?
@@ -442,9 +445,9 @@ data$inc[data$inc<8] <-8
 
 # Great. The regression coefficient estimate in the (Intercept) row is suggesting that there’s a positive relationship between these variables and someone’s hourly wage at FutureChew. Now let’s dig down and find out more about what this regression can (or can’t) tell us. 
 
-2) Which variable has a negative effect on income?
+# 2) Which variable has a negative effect on income?
 
-     solution2<-“”
+     solution2<-""
  
  
 ```
@@ -472,7 +475,7 @@ success_msg("Good work! While the data overall shows a positive correlation of g
 
 ## Income Inequality at FutureChew: Part 3 -Omitted Variable Bias
 
-As we know, we don’t want to omit any variables in our regression that might be affecting outcomes, because that would create a bias in our results. However, we can also use the “omitted variable bias” as a tool to check whether our first guess at important factors was correct—if we remove a variable and nothing changes in our estimate, then that variable was probably not necessary. If we omit a variable and our estimate does change, the size and direction of the difference can show us more about the relationships between the variables, namely which ones are pushing our estimates up or down in any significant way. 
+As we know, we don’t want to omit any variables in our regression that might be affecting outcomes, because that would create a bias in our results. However, we can also use the "omitted variable bias" as a tool to check whether our first guess at important factors was correct—if we remove a variable and nothing changes in our estimate, then that variable was probably not necessary. If we omit a variable and our estimate does change, the size and direction of the difference can show us more about the relationships between the variables, namely which ones are pushing our estimates up or down in any significant way. 
 
 *** =instructions
 - 1) Run a regression on the data that omits the variable `female`.
@@ -649,7 +652,7 @@ C) Whether having health insurance makes people healthier.
 msg1 = "Try again"
 msg2 = "Try again"
 msg3 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
-msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the “outside option” of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes."
+msg4 = "Correct. In (A) we are specifically interested in computing a counterfactual policy prediction: What would happen to market shares of each health plan——including the "outside option" of not getting any health insurance plan and hence going uninsured——if we changed plan premiums. (C) however is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes."
 msg4 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
 msg5 = "(C) is about the impact of having insurance on outcomes. If we only know people’s preferences over insurance plans, we still don’t have any data on health *outcomes* and hence preference data alone isn’t enough to learn about the effect of insurance on outcomes. Try again."
 test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
@@ -727,7 +730,7 @@ Data$reward[Data$payment == "Debit"] <- rbinom(22,1,0.2)
 
 # 2) Now create a 3 by 3 table that contains averages of `value` by `payment` in the first column and the standard deviations of `value` by drinking level in the second column. Provide the R code below. 
 
-#Note: the format to do this with dplyr is: ddply(dataframe, ~variable1, variable2, mean=mean (value), sd=sd(value))
+# Note: the format to do this with dplyr is: ddply(dataframe, ~variable1, variable2, mean=mean (value), sd=sd(value))
 
 
 ```
@@ -872,7 +875,7 @@ value <- rep(NA,72)
 reward <- rep(NA,72)
 Data <- data.frame(ID,payment,value,reward)
 
-#INCLUDE ANSWER FROM PREVIOUS QUESTION HERE
+# INCLUDE ANSWER FROM PREVIOUS QUESTION HERE
 ```
 
 
@@ -914,7 +917,9 @@ success_msg("Good work! Now we see that the predicted probabilities fall within 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ed84d2c77d
 
 ## Cash or Card, Part 4 - Probit or Logit?
-There’s another kind of probability model that we should check before we’re done called a legit model, and it’s often done as a counterpart to probit models.
+There’s another kind of probability model that we should check before we’re done called a legit model, and it’s often done as a counterpart to probit models. In logit regression, the predicted values are calculated using: 
+
+$P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
 Data Dictionary:
 
@@ -947,7 +952,7 @@ value <- rep(NA,72)
 reward <- rep(NA,72)
 Data <- data.frame(ID,payment,value,reward)
 
-#INCLUDE ANSWER FROM PREVIOUS QUESTION HERE
+# INCLUDE ANSWER FROM PREVIOUS QUESTION HERE
 ```
 
 
@@ -963,9 +968,6 @@ curve(predict(mylogit,data.frame(value=x),type="resp"),add=TRUE,col="blue")
 legend("bottomright",legend = c("Probit","Logit"),col=c("red","blue"),inset = c(0.1,0.1),lwd=1)
 
 # Overall, you should see that in this case, the probit and logit regressions result in similar predicted probability. 
-
-# In logit regression, the predicted values are calculated using:
-$P (Y = 1|X) = \frac{1}{1+e^{-(\hat{\beta_{0}}+\hat{\beta_{1}}X)}}$
 
 # 1) Try it for yourself and run a logit regression of `card` on `value`. Provide the R code below.
 
@@ -990,7 +992,7 @@ solution2<-predict(mylogit, data.frame(value = c(10,200)), type = "response")
 *** =sct
 ```{r}
 test_object("Solution1")
-test_object("Solution2”)
+test_object("Solution2")
 success_msg("Good work!")
 ```
 
@@ -1063,10 +1065,10 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 Red wine has resveratrol, a substance that reduces the risk for heart disease. Moderate consumption of red wine is believed to promote longevity. Jenny is very health-conscious and wants to figure out whether red wine is a longevity promoter. She is interested in examining the effect of wine consumption on longevity. She doesn’t have the capacity to run a huge medical experiment herself, so she decides to instead download some public data and develop some models to see what she can learn. The data set `Data.wine` contains 4 variables and 60 observations. The data dictionary is below.
 
 Data Dictionary:
-ID          : subject identifier
-Wine        : drinking level (light, moderate, and heavy)
-Age         : age at death
-Exercise    : hours spent on exercise per week
+   `ID` - subject identifier
+   `Wine`- drinking level (light, moderate, and heavy)
+   `Age` - age at death
+   `Exercise` - hours spent on exercise per week
 
 *** =pre_exercise_code
 ```{r}
