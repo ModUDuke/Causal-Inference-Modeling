@@ -1,11 +1,7 @@
 --- 
-title       : "Modeling for Causal Inference"
-description : "This chapter will introduce you to modeling for causal inference"
-
-
-## OVERALL NOTE: I FEEL LIKE OUR CODING QUESTIONS SHOULD DEFAULT TO END WITH PEOPLE WRITING OUT AN ALGORITHM/MODEL BASED ON THEIR REGRESSION COEFFICIENTS. IT'S A MODELING CHAPTER, SO EACH CODING QUESTION SHOULD END WITH A MODEL, NOT JUST A VALUE.
-
-
+title       : 'Modeling for Causal Inference'
+description : 'This chapter will introduce you to modeling for causal inference'
+---
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
@@ -44,14 +40,19 @@ msg4 = "(B) and (D). These are both situations where a person is making a discre
 test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
 ```
 
+
+## OVERALL NOTE: I FEEL LIKE OUR CODING QUESTIONS SHOULD DEFAULT TO END WITH PEOPLE WRITING OUT AN ALGORITHM/MODEL BASED ON THEIR REGRESSION COEFFICIENTS. IT'S A MODELING CHAPTER, SO EACH CODING QUESTION SHOULD END WITH A MODEL, NOT JUST A VALUE.
+
+
+
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:c28b49d735
 ## Kids Love Ice Cream: Part 1 - Data Discovery
 You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. The topic is way too complicated to do a good experiment on, but you decide to look at something fun in their data, and you see that there is information about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
 
 Data Dictionary:
-	consumption: ice cream consumption (in pints)
-	children: number of children in the family 
-	age: average age of the children 
+   `consumption` - ice cream consumption (in pints)
+   `children` - number of children in the family 
+   `age` - average age of the children 
 
  
 *** =instructions
@@ -80,7 +81,7 @@ icecream <- data.frame(consumption, children, age)
 # 1) First, let’s take a quick glance at how the data is formatted. We can do this by looking at the first 6 observations with the head() command, so insert the name of our dataframe, icecream, into the head() command:
 
 
-  
+
 # Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
 
 # We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We’ve done the first one for you, so select the following code and hit the “Run Code” button:
@@ -122,15 +123,21 @@ But is this observation an outlier? An outlier may result from variability or it
 It can be a bit difficult to decide where to start looking for connections, so let’s begin with a question to help us frame the situation. Since we can guess that kids love ice cream, and that kids may eat more ice cream as they get older, does our data show any relationship between total ice cream consumption and the ages and number of children in a family?  Let's find the correlation between the number of children, their ages, and family ice cream consumption through a basic linear regression.
 
 Data Dictionary:
-	consumption: ice cream consumption (in pints)
-	children: number of children in the family 
-	age: average age of the children 
+   `consumption` - ice cream consumption (in pints)
+   `children` - number of children in the family 
+   `age` - average age of the children 
 
 *** =instructions
 - 1) Use the `lm` function to create a linear regression of children and age on ice cream consumption.
 - 2) Use the `lm.out` function to output the linear regression.
 - 3) Use the `summary` function to generate a table of summary statistics about that regression.
 - 4) Create an equation for a model of family ice cream consumption based on our results.
+
+
+*** =hint
+- The first step is to put the output of your `lm` command into a dataframe like this: lm.out<-with(dataframe, lm(outcome ~ variable1+variable2))
+- Then output the summary statistics of that dataframe with summary(Solution1)
+
 
 *** =pre_exercise_code
 ```{r}
@@ -163,11 +170,6 @@ icecream <- data.frame(consumption, children, age)
       model<-#### + ####children - ####*age
 
 ```
-
-*** =hint
-- The first step is to put the output of your `lm` command into a dataframe like this: lm.out<-with(dataframe, lm(outcome ~ variable1+variable2))
-- Then output the summary statistics of that dataframe with summary(Solution1)
-
 
 
 *** =solution
@@ -211,7 +213,7 @@ model<-lm(consumption ~ children+age)
 - 3) What's the standard error of this estimate?
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 # 1) There are several relationships we could choose to understand better, but let’s start with a single but important one. What does our regression help illuminate between the number of children in a family and its total ice cream consumption?
 
@@ -250,7 +252,7 @@ success_msg("Good work! Our coefficient on `children` has an error margin of rou
 ## Kids Love Ice Cream: Part 4 - Statistical Significance Checks
 There are several numbers that the summary() function generates that that can help us decide whether our coefficients are statistically significant, so let’s look at 3 of them: the t-statistic, the p-value, and the $R^$2 value. 
 
-***=instructions
+*** =instructions
 - **Interpreting t-statistics:**
 - A t-statistic of 0 is the worst case scenario. It means that we should have zero confidence in the statistical significance of our regression coefficient.
 - In contrast, a t-statistic larger than +/-2 usually means that you can have over 95% confidence in your coefficient’s significance, and the larger the t-statistic, the more confidence you can have in your coefficient’s predictive power. 
@@ -328,11 +330,11 @@ We shall take the role of this analyst, and let’s start by looking at the hour
 
 Data dictionary:
 
-inc         : hourly income
-female      : 1 if female
-age         : age
-exp         : work experience in years
-educ        : education in years
+   `inc` - hourly income
+   `female` - 1 if female
+   `age` - age
+   `exp` - work experience in years
+   `educ` - education in years
 
 *** =instructions
 - 1) Take a look at the structure of the dataset and some initial variable values.
@@ -340,7 +342,7 @@ educ        : education in years
 - 3) Take a guess at which 2 variables will be the least correlated.
 - 4) See how close your guesses were by looking at a correlation matrix.
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 female <- rbinom(20,1,0.5)
@@ -358,7 +360,7 @@ data$inc <- 2+0.4*data$educ+0.3*data$exp-2*female+u
 data$inc[data$inc<8] <-8
 ```
 
-***=sample_code
+*** =sample_code
 ```{r}
 ## Correlation
 # Let’s start by generating a correlation matrix. This will show us the correlations between different pairs of variables, which can give us a general sense of what variables seem to be connected in our data (either positively or negatively). And luckily for us, we don’t have many variables to consider—it’s a different story when you have thousands to look at!
@@ -379,7 +381,6 @@ data$inc[data$inc<8] <-8
 
 ```
 
-
 # SHOULD WE EVEN PUT THOSE GUESS STRINGS FROM 2 & 3 INTO DATAFRAMES, OR JUST LEAVE THE ENTRY LINES BLANK SINCE WE WON'T CHECK THEM?
 
 *** =solution
@@ -392,8 +393,7 @@ cor(data,use = "complete.obs",method = "pearson")
 ```{r}
 test_object("Solution1")
 test_object("Solution2”)
-success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don’t know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let’s keep going.
-")
+success_msg("Good work! Great job. Take a look at the results, and look at the correlations of different variables in each row and column. Which correlations look larger than you were expecting? Which ones are smaller than you were expecting? We don’t know if we can trust any of these numbers yet, but perhaps these results can lead to interesting questions. Let’s keep going.")
 ```
 
 
@@ -404,7 +404,7 @@ success_msg("Good work! Great job. Take a look at the results, and look at the c
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:395da70ba8
 
-# Income Inequality at FutureChew: Part 2 - OLS Regression 
+## Income Inequality at FutureChew: Part 2 - OLS Regression 
 The Director tells you that the company tries to ignore an employee’s age when setting their salary, so you assume that’s true and think about a model that bases income just on education, experience, and gender, like the following:
 
 $inc=\alpha+\beta_1educ+\beta_2exp+\beta_3female+u$,where $u$ is random error.
@@ -415,7 +415,7 @@ So let’s check out whether these variables seem to be correlated with salary i
 - 1) Start with a simple regression
 - 2) Identify a variable that is negatively correlated with income.
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 female <- rbinom(20,1,0.5)
@@ -435,7 +435,7 @@ data$inc[data$inc<8] <-8
 ```
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 # 1) We can use regression to help us determine the coefficients for each of these factors in an employee’s income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
 
@@ -446,7 +446,8 @@ data$inc[data$inc<8] <-8
 2) Which variable has a negative effect on income?
 
      solution2<-“”
-     
+ 
+ 
 ```
 
 *** =solution
@@ -515,7 +516,7 @@ model<-lm(inc ~ female + exp + educ)
 # 3) Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we’ve omitted `female`? Don't round the number.
 
      solution3<-
- 
+
 ```
 
 
@@ -572,7 +573,7 @@ model<-lm(inc ~ female + exp + educ)
 
 # 1) Let’s start with the basics by including `age` in the regression. Regress `inc` on `female`,`age`,`exp`, and `educ`. Then output the results with the summary function.
 
-
+	Solution1<-
 
 # You should see that when the model includes `age`, the estimators have very large standard error, and none of the coefficients are significant at 5% level. 
 
@@ -580,7 +581,8 @@ model<-lm(inc ~ female + exp + educ)
 
 # The multicollinearity inflates the standard error, thus the coefficients are very likely to be insignificant. We can drop one of the highly correlated variables. But which one to drop? In this case, it makes more sense to drop `age`. People always age but not necessarily gain more working experience. Thus, we can drop `age` to produce a model with significant coefficients. Now, re-run the regression without `age`.
 
-     
+	Solution2<-
+
 ```
 
 *** =solution
@@ -687,9 +689,9 @@ Consumers today have many payment options, and the small town West Cargo Bank is
 
 Data Dictionary:
 
-ID          : subject identifier
-payment        : choice of payment (cash, credit card, or debit card)
-value         : value of transaction in dollars
+   `ID` - subject identifier
+   `payment` - choice of payment (cash, credit card, or debit card)
+   `value` - value of transaction in dollars
 
 *** =instructions
 - 1) Look at the data to see 
@@ -754,9 +756,9 @@ The bank wants to know how the value of transaction influence the probability of
 
 Data Dictionary:
 
-ID          : subject identifier
-payment        : choice of payment (cash, credit card, or debit card)
-value         : value of transaction in dollars
+   `ID` - subject identifier
+   `payment` - choice of payment (cash, credit card, or debit card)
+   `value` - value of transaction in dollars
 
 *** =instructions
 - 1) Create a dummy variable called `card` that with binary values to mark whether someone used cash or a credit/debit card.
@@ -807,6 +809,7 @@ $P(\widehat{card = 1}) = 0.1697433 +  0.0057374 \times value$
 # 4) What code provides the probability of using card change if the value of transaction is $200? Write the R code below and look at the answer.
 
      solution4<-
+     
 ```
 
 ## NOT SURE IF SOLUTIONS WORK FOR 3 AND 4
@@ -828,9 +831,7 @@ test_object("Solution1")
 test_object("Solution2”)
 test_object("Solution3”)
 test_object("Solution4”)
-success_msg("Good work! You should see that for a $10 transaction, the expected probability of using card is 22.71% . For a transaction with $200 value, your expected probability of using card should be 131.72%.
-
-But that second number is a problem: how can a probability larger than 100%? It cannot. This is the problem with the Linear Probability Model (LPM). The model can actually produce probabilities outside [0,1]. ")
+success_msg("Good work! You should see that for a $10 transaction, the expected probability of using card is 22.71% . For a transaction with $200 value, your expected probability of using card should be 131.72%. But that second number is a problem: how can a probability larger than 100%? It cannot. This is the problem with the Linear Probability Model (LPM). The model can actually produce probabilities outside [0,1]. ")
 ```
 
 
@@ -846,9 +847,9 @@ Thus, the predicted values are bounded between 0 and 1.
 
 Data Dictionary:
 
-ID          : subject identifier
-payment        : choice of payment (cash, credit card, or debit card)
-value         : value of transaction in dollars
+   `ID` - subject identifier
+   `payment` - choice of payment (cash, credit card, or debit card)
+   `value` - value of transaction in dollars
 
 *** =instructions
 - 1) Run a probit regression of `card` on `value`.
@@ -880,7 +881,6 @@ Data <- data.frame(ID,payment,value,reward)
 
 *** =sample_code
 ```{r}
-
 # 1) Now, run a probit regression of `card` on `value`. 
 
 
@@ -921,9 +921,9 @@ There’s another kind of probability model that we should check before we’re 
 
 Data Dictionary:
 
-ID          : subject identifier
-payment        : choice of payment (cash, credit card, or debit card)
-value         : value of transaction in dollars
+   `ID` - subject identifier
+   `payment` - choice of payment (cash, credit card, or debit card)
+   `value` - value of transaction in dollars
 
 *** =instructions
 - 1) Look at a graph comparing logit and probit regressions on our data.
@@ -931,7 +931,7 @@ value         : value of transaction in dollars
 - 3) What does this model say is the probability of using a card for a $10 item?
 - 4) What does this model say is the probability of using a card for a $200 item?
 
-***=pre_exercise_code
+*** =pre_exercise_code
 ```{r}
 set.seed(123)
 #Dataframe
@@ -954,7 +954,7 @@ Data <- data.frame(ID,payment,value,reward)
 ```
 
 
-***=sample_code
+*** =sample_code
 ```{r}
 
 # 1) The predicted probability of using cash can be seen by running the graph code below: 
@@ -1008,12 +1008,13 @@ success_msg("Good work!")
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e26d5f2fe4
 ## Why Might Experiments Be Impossible?
 What are some reasons why we can’t do randomized experiments?
-*** =instructions
+
 A) High rates of violence encourages states to instate a death penalty.
 B) States that have the death penalty tend to have lower education, and education reduces violent behavior.
 C) States that have the death penalty tend to have lower rates of mortality.
 D) States that don't have the death penalty also tend to legalize more recreational drugs, which pacifies people's violent behavior.
 
+*** =instructions
 - A
 - B
 - C
@@ -1114,7 +1115,7 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 # 2) Create a box plot that plots the primary outcome as a function of drinking level. Use different plotting color for each drinking level. Make sure to include an informative title and axis labels. Is there any evidence of a relationship between the two variables? Provide the R code below.
 
-
+	solution2<-
 
 # The mean values of age at death look different, but are they? Let's use linear regression (lm) to find out. 
 
@@ -1122,7 +1123,7 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 
 
-#Hours of Exercise among Different Drinking Levels
+# Hours of Exercise among Different Drinking Levels
 
 # The results from simple regression show that moderate wine consumption is associated with longer life expectancy. However, can we draw the conclusion that moderate consumption of red wine promotes longevity? Moderate wine consumers may be more health-conscious and have better self-control. The might have other healthy habits (i.e., physical exercise) that contribute to longevity. 
 
@@ -1132,7 +1133,7 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 
 # 5) Now, control for hours spent on exercise per week (`Exercise`) in the linear regression. Run a multiple linear regression of `Age` on `Wine` and `Exercise`. Please provide the R code below.
 
-
+	Solution5<-
 
 ```
 
@@ -1141,19 +1142,16 @@ col[Data.wine$Wine=="heavy"] <- "yellow"
 *** =solution
 ```{r}
 plot(Data.wine$Wine, Data.wine$Age, main = "Difference in Age at Death", ylab = "Age at Death", xlab = "Drinking Level", col = col)
-lm(Age ~ Wine))
+solution2<-lm(Age ~ Wine))
 	summary(solution2)
 ddply(Data.wine,~Wine, summarise, mean = mean (Exercise), sd = sd(Exercise))
-lm(Age ~ Wine + Exercise))
-	summary(solution4)
-
+solution5<-lm(Age ~ Wine + Exercise))
+	summary(solution5)
 ```
 
 *** =sct
 ```{r}
 test_error()
-success_msg("Good work! The base group (light drinkers) is represented by the intercept. Light drinkers have an average life span of 79.83 years. The regression coefficient on moderate drinkers is 4.467, indicating the expected life of moderate drinkers is 4.467 years longer than that of light drinkers. The p-value of this coefficient around 3%, suggesting the difference in expected life  between those two groups is significant at 5% significance level. 
-
-Moderate consumers spend the most time on exercise and heavy drinkers are the most physically inactive. When we control for exercise, the coefficient on moderate drinkers is no longer significant (p-value:7.24%). This implies that wine consumption cannot explain the age differences between moderate drinkers and light drinkers. However, the coefficient on `Exercise` is significantly positive at 1% significance level. Thus, longevity is driven mostly by physical activity instead of wine consumption in this case.")
+success_msg("Good work! The base group (light drinkers) is represented by the intercept. Light drinkers have an average life span of 79.83 years. The regression coefficient on moderate drinkers is 4.467, indicating the expected life of moderate drinkers is 4.467 years longer than that of light drinkers. The p-value of this coefficient around 3%, suggesting the difference in expected life  between those two groups is significant at 5% significance level. Moderate consumers spend the most time on exercise and heavy drinkers are the most physically inactive. When we control for exercise, the coefficient on moderate drinkers is no longer significant (p-value:7.24%). This implies that wine consumption cannot explain the age differences between moderate drinkers and light drinkers. However, the coefficient on `Exercise` is significantly positive at 1% significance level. Thus, longevity is driven mostly by physical activity instead of wine consumption in this case.")
 ```
 
