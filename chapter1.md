@@ -1,7 +1,7 @@
 --- 
 title       : 'Modeling for Causal Inference'
 description : 'This chapter will introduce you to modeling for causal inference'
-
+---
 
 --- type:VideoExercise lang:arsd aspect_ratio:62.5 xp:50 skills:1 key:812b575a73
 ## The Basics of Modeling Behavior
@@ -36,8 +36,9 @@ msg1 = "Try again"
 msg2 = "Try again"
 msg3 = "Try again"
 msg4 = "In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
-msg4 = "(B) and (D). These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
-test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5))
+msg5 = "(B) and (D). These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
+msg6 = "Try again"
+test_mc(correct = 5, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 ```
 
 
@@ -64,7 +65,7 @@ Data Dictionary:
 ```{r}
 set.seed(1234)
 children <- round(rnorm(20,3,4),0)
-children[children<0] <-0
+children[children<=0] <-0
 age <- round(rnorm(20,7,5),0)
 age[age<0] <-1
 u <- rnorm(20,0,5)
@@ -112,9 +113,7 @@ max(icecream$children)
 *** =sct
 ```{r}
 test_error()
-success_msg(“As you can see, the largest family in this sample is unusually big as it has 13 children in it. Descriptive statistics can help us detect extreme values. 13 children in a household seems like a lot. 
-
-But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.”)
+success_msg("As you can see, the largest family in this sample is unusually big as it has 13 children in it. Descriptive statistics can help us detect extreme values. 13 children in a household seems like a lot. But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.")
 ```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:de1f3cbf85
@@ -1071,7 +1070,7 @@ Exercise    : hours spent on exercise per week
 
 *** =pre_exercise_code
 ```{r}
-library(plyr)
+library(dplyr)
 set.seed(123)
 #Dataframe
 Wine <- c(rep("light",30),rep("moderate",20),rep("heavy",10))
