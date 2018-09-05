@@ -439,13 +439,13 @@ data$inc[data$inc<8] <-8
 ```{r}
 # 1) We can use regression to help us determine the coefficients for each of these factors in an employee's income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
 
-      solution1<-
+      Solution1<-
 
 # Great. The regression coefficient estimate in the (Intercept) row is suggesting that there's a positive relationship between these variables and someone's hourly wage at FutureChew. Now let's dig down and find out more about what this regression can (or can't) tell us. 
 
 # 2) Which variable has a negative effect on income?
 
-     solution2<-""
+     Solution2<-""
  
  
 ```
@@ -453,7 +453,7 @@ data$inc[data$inc<8] <-8
 *** =solution
 ```{r}
 Solution1<-lm(inc ~ female + exp + educ)
-summary(solution1)
+summary(Solution1)
 Solution2<-"female"
 ```
 
@@ -510,11 +510,11 @@ model<-lm(inc ~ female + exp + educ)
 
 # 2) In our original regression that included `female`, the coefficient for experience was 0.25116. What is the coefficient on `exp` now that we've omitted `female`? Don't round the number.
 
-     solution2<-
+     Solution2<-
 
 # 3) Likewise, our original coefficient for education was 0.26599. What is the coefficient on `educ` now that we've omitted `female`? Don't round the number.
 
-     solution3<-
+     Solution3<-
 
 ```
 
