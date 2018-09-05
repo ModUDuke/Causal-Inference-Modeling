@@ -448,7 +448,7 @@ data$inc[data$inc<8] <-8
 
 *** =solution
 ```{r}
-Solution1<-lm(inc ~ female + exp + educ)
+Solution1<-lm(inc ~ female + exp + educ, data)
 summary(Solution1)
 Solution2<-"female"
 ```
@@ -492,7 +492,7 @@ data$educ[data$female==0] <- round(rnorm(20-sum(female),15,5),0)
 data$educ[data$educ<0] <- 0
 data$inc <- 2+0.4*data$educ+0.3*data$exp-2*female+u
 data$inc[data$inc<8] <-8
-model<-lm(inc ~ female + exp + educ)
+model<-lm(inc ~ female + exp + educ, data)
 ```
 
 *** =sample_code
@@ -517,7 +517,7 @@ model<-lm(inc ~ female + exp + educ)
 
 *** =solution
 ```{r}
-lm.out2 <- with(data, lm(inc ~ exp + educ))
+lm.out2 <- lm(inc ~ exp + educ, data)
 summary(lm.out2)
 Solution2<-0.25580
 Solution3<-0.33554
@@ -559,7 +559,7 @@ data$educ[data$female==0] <- round(rnorm(20-sum(female),15,5),0)
 data$educ[data$educ<0] <- 0
 data$inc <- 2+0.4*data$educ+0.3*data$exp-2*female+u
 data$inc[data$inc<8] <-8
-model<-lm(inc ~ female + exp + educ)
+model<-lm(inc ~ female + exp + educ, data)
 ```
 
 
@@ -582,9 +582,9 @@ model<-lm(inc ~ female + exp + educ)
 
 *** =solution
 ```{r}
-lm(inc ~ female + age + exp + educ)
+lm(inc ~ female + age + exp + educ, data)
 	summary(solution1)
-lm(inc ~ female + exp + educ)
+lm(inc ~ female + exp + educ, data)
 	summary(solution2)
 ```
 
