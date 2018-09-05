@@ -405,11 +405,7 @@ success_msg("Good work! Great job. Take a look at the results, and look at the c
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:395da70ba8
 
 ## Income Inequality at FutureChew: Part 2 - OLS Regression 
-The Director tells you that the company tries to ignore an employee's age when setting their salary, so you assume that's true and think about a model that bases income just on education, experience, and gender, like the following:
-
-$inc=\alpha+\beta_1educ+\beta_2exp+\beta_3female+u$,where $u$ is random error.
-
-So let's check out whether these variables seem to be correlated with salary in our data.
+The Director tells you that the company tries to ignore an employee's age when setting their salary, so you assume that's true and think about a model that bases income just on education, experience, and gender. So let's check out whether these variables seem to be correlated with salary in our data.
 
 *** =instructions
 - 1) Start with a simple regression
@@ -431,7 +427,6 @@ data$educ[data$female==0] <- round(rnorm(20-sum(female),15,5),0)
 data$educ[data$educ<0] <- 0
 data$inc <- 2+0.4*data$educ+0.3*data$exp-2*female+u
 data$inc[data$inc<8] <-8
-
 ```
 
 
@@ -440,14 +435,15 @@ data$inc[data$inc<8] <-8
 # 1) We can use regression to help us determine the coefficients for each of these factors in an employee's income. Regress `inc` on `female`,`exp`, and `educ`, and run the summary() command to learn about the results.
 
       Solution1<-
+      
 
 # Great. The regression coefficient estimate in the (Intercept) row is suggesting that there's a positive relationship between these variables and someone's hourly wage at FutureChew. Now let's dig down and find out more about what this regression can (or can't) tell us. 
 
 # 2) Which variable has a negative effect on income?
 
      Solution2<-""
- 
- 
+
+
 ```
 
 *** =solution
