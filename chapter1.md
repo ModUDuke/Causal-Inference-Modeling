@@ -43,19 +43,15 @@ skills: 1
 
 Which of the following are examples where we might apply discrete choice analysis?
 
-A) Learning the effect of a new cancer drug on life expectancy
-B) Learning whether giving people informational brochures affects whether they take prescription drugs as prescribed, such as whether they take antibiotics for the entire duration of the prescription or whether they stop early once they feel that symptoms have disappeared.
-C) Learning whether a certain plant thrives under warmer or colder weather.
-D) Learning the effect of the income tax on whether people participate in the labor market or not.
 
 `@hint`
 
 
 `@possible_answers`
-- A
-- B
-- C
-- D
+- A) Learning the effect of a new cancer drug on life expectancy
+- B) Learning whether giving people informational brochures affects whether they take prescription drugs as prescribed, such as whether they take antibiotics for the entire duration of the prescription or whether they stop early once they feel that symptoms have disappeared.
+- C) Learning whether a certain plant thrives under warmer or colder weather.
+- D) Learning the effect of the income tax on whether people participate in the labor market or not.
 - A and C
 - B and D
 
