@@ -71,7 +71,7 @@ test_mc(correct = 6, feedback_msgs = c(msg1,msg2,msg3,msg4,msg5,msg6))
 ## Kids Love Ice Cream: Part 1 - Data Discovery
 
 ```yaml
-type: TabExercise
+type: NormalExercise
 key: c28b49d735
 lang: r
 xp: 100
