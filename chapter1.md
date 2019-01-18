@@ -38,7 +38,7 @@ B) Learning whether giving people informational brochures affects whether they t
 C) Learning whether a certain plant thrives under warmer or colder weather.
 D) Learning the effect of the income tax on whether people participate in the labor market or not.
 
-*** =instructions
+`@possible_answers`
 - A
 - B
 - C
@@ -46,7 +46,7 @@ D) Learning the effect of the income tax on whether people participate in the la
 - A and C
 - B and D
 
-*** =sct
+`@feedback`
 ```{r}
 msg1 = "We might hope this drug works, but we're looking for examples of when people make choices. Try again."
 msg2 = "There is another answer that also qualifies, so try again."
