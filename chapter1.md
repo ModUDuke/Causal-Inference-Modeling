@@ -29,18 +29,8 @@ video_link: //player.vimeo.com/video/231746571
 ```
 
 
----
-
-## Examples of Discrete Choice Analysis
-
-```yaml
-type: MultipleChoiceExercise
-key: 4dfa681543
-lang: r
-xp: 50
-skills: 1
-```
-
+--- type:PureMultipleChoiceExercise lang:r xp:50 skills:1 key:4dfa681543
+## Examples of Discrete Choice Analysis 
 Which of the following are examples where we might apply discrete choice analysis?
 
 A) Learning the effect of a new cancer drug on life expectancy
@@ -48,7 +38,7 @@ B) Learning whether giving people informational brochures affects whether they t
 C) Learning whether a certain plant thrives under warmer or colder weather.
 D) Learning the effect of the income tax on whether people participate in the labor market or not.
 
-`@possible_answers`
+*** =instructions
 - A
 - B
 - C
@@ -56,15 +46,7 @@ D) Learning the effect of the income tax on whether people participate in the la
 - A and C
 - B and D
 
-`@hint`
-
-
-`@pre_exercise_code`
-```{r}
-
-```
-
-`@sct`
+*** =sct
 ```{r}
 msg1 = "We might hope this drug works, but we're looking for examples of when people make choices. Try again."
 msg2 = "There is another answer that also qualifies, so try again."
