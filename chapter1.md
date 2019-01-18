@@ -43,7 +43,6 @@ skills: 1
 
 Which of the following are examples where we might apply discrete choice analysis?
 
-
 `@hint`
 
 
