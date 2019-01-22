@@ -59,7 +59,7 @@ Which of the following are examples where we might apply discrete choice analysi
 - There is another answer that also qualifies, so try again.
 - We are looking for examples of when humans make choices. Try again.
 - There is another answer that also qualifies, so try again.
-- In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply."
+- In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply.
 - Correct! These are both situations where a person is making a discrete choice. In (B) they are decided whether to take the drug as prescribed. In (D) they are deciding whether to participate in the labor market. Hence we can use discrete choice analysis to study the causal effects of various policies. In (A) and (C) we are still interested in causal effects, but now there are no people making decisions, so discrete choice analysis (usually) will not apply.
 
 ---
