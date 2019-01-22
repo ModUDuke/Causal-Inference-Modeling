@@ -1405,43 +1405,17 @@ key: aed7ba6590
 xp: 50
 ```
 
-
+asdfasdf
 
 `@hint`
-
+um
 
 `@possible_answers`
-
+- 1
+- 2
+-[3]
 
 `@feedback`
-
-
----
-
-## Insert exercise title here
-
-```yaml
-type: TabExercise
-key: 51b0116b34
-xp: 100
-```
-
-You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. The topic is way too complicated to do a good experiment on, but you decide to look at something fun in their data, and you see that there is information about the consumption of ice cream by 20 families in the town. You start by finding out how much ice cream a household consume in a year by using the dataset icecream on 20 households.The data dictionary is below.
-
-Data Dictionary: 
-
-- `consumption`: ice cream consumption (in pints) 
-- `children`: number of children in the family 
-- `age`: average age of the children
-
-`@pre_exercise_code`
-```{r}
-set.seed(1234)
-children <- round(rnorm(20,3,4),0)
-children[children<=0] <-0
-age <- round(rnorm(20,7,5),0)
-age[age<0] <-1
-u <- rnorm(20,0,5)
-consumption <- 100 + 4*children-3*age+u
-icecream <- data.frame(consumption, children, age)
-```
+what
+no
+yes
