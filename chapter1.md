@@ -1417,3 +1417,141 @@ um
 - what
 - no
 - yes
+
+---
+
+## testing sequestionalaly
+
+```yaml
+type: TabExercise
+key: 1b238a24c4
+xp: 100
+```
+
+
+You have been newly hired as a data analyst for ConsumerCore Inc., and your very first assignment is to go through a small dataset to learn about food consumption trends in Gluttown, Michigan. The topic is way too complicated to do a good experiment on, but you decide to look at something fun in their data, and you see that there is information about the consumption of ice cream by 20 families in the town.  You start by finding out how much ice cream a household consume in a year by using the dataset `icecream` on 20 households.The data dictionary is below.
+
+Data Dictionary:
+   `consumption` - ice cream consumption (in pints)
+   `children` - number of children in the family 
+   `age` - average age of the children
+
+`@pre_exercise_code`
+```{r}
+set.seed(1234)
+children <- round(rnorm(20,3,4),0)
+children[children<=0] <-0
+age <- round(rnorm(20,7,5),0)
+age[age<0] <-1
+u <- rnorm(20,0,5)
+consumption <- 100 + 4*children-3*age+u
+icecream <- data.frame(consumption, children, age)
+```
+
+***
+
+```yaml
+type: NormalExercise
+key: 128aee6011
+xp: 35
+```
+
+`@instructions`
+- 1) Get a quick sense of the variable names and variable types
+
+`@hint`
+- Use the `summary` function to generate a table of summary statistics about `icecream`.
+
+`@sample_code`
+```{r}
+# 1) First, let's take a quick glance at how the data is formatted. We can do this by looking at the first 6 observations with the head() command, so insert the name of our dataframe, icecream, into the head() command:
+
+
+
+# Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
+```
+
+`@solution`
+```{r}
+head(icecream)
+```
+
+`@sct`
+```{r}
+
+```
+
+***
+
+```yaml
+type: NormalExercise
+key: 219a44b979
+xp: 35
+```
+
+`@instructions`
+- 2) Show the descriptive statistics of `consumption`, `children`, and `age`.
+
+`@hint`
+
+
+`@sample_code`
+```{r}
+# Good. Now that you can see the names of variables and some of their values, we need to calculate some key summary statistics.
+
+# 2a)We want the descriptive statistics of ice cream consumption, number of children in the family, and average age of the children. For each of these solutions, use the `summary` command to generate a table of summary statistics on each variable. We've done the first one for you, so select the following code and hit the "Run Code" button:
+
+   summary(icecream$consumption)
+
+# 2b) Woah, that's a lot of pints for a typical family in a year. Now repeat this command, but for the variable `children`:
+
+
+
+# 2c) Okay, the median number of children is 1, which sounds pretty normal. Now repeat the summary command again, but for the variable `age`:
+
+
+
+```
+
+`@solution`
+```{r}
+summary(icecream$children)
+summary(icecream$age)
+```
+
+`@sct`
+```{r}
+
+```
+
+***
+
+```yaml
+type: NormalExercise
+key: e510097bea
+xp: 30
+```
+
+`@instructions`
+- 3) What's the maximum number of children in a family for this sample?
+
+`@hint`
+
+
+`@sample_code`
+```{r}
+# 3) Good, it looks like the kids are as old as, well, kids. Now let's find out how many children are in our biggest family. If it's a number like 99, it's probably a typo and we should ignore it. You can use the `max` command to find this, or you can just type the answer in. The format for the max command is max(dataframe$variable):
+
+
+
+```
+
+`@solution`
+```{r}
+max(icecream$children)
+```
+
+`@sct`
+```{r}
+success_msg("As you can see, the largest family in this sample is unusually big as it has 13 children in it. Descriptive statistics can help us detect extreme values. 13 children in a household seems like a lot. But is this observation an outlier? An outlier may result from variability or it may indicate measurement error (i.e., the survey participant writes down a wrong number). If it's the latter, we can exclude this observation from data. However, we are not sure whether this is the case. After all, there is a reality show featuring a family with 19 children. So, 13 children could be possible.")
+```
