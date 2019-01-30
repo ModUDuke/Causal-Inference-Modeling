@@ -1,6 +1,7 @@
 ---
 title: 'Modeling for Causal Inference'
 description: 'This chapter will introduce you to modeling for causal inference'
+free_preview: true
 ---
 
 ## The Basics of Modeling Behavior
